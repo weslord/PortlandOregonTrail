@@ -35,8 +35,33 @@ var events = [
 		"cool": 100
 	},
 	{
-		"description": "Find vinyl record in shop while passing by.",
+		"description": "Find vinyl record in thrift store while passing by.",
 		"cost": 100,
 		"cool": 100
+	},
+	{
+		"description": "Ironically stop at historic monument, but you don't know why.",
+		"cost": 0,
+		"cool": 100
+	},
+	{
+		"description": "You stop to see a statue of Britney Spears. You spot someone you know, and you hide.",
+		"cost": 0,
+		"cool": -50
+	}, 
+	{
+		"description": "Need to go to hospital because jeans are too tight.",
+		"cost": -2000,
+		"cool": 100
+	},
+	{
+		"description": "Obtained a velocipede.",
+		"cost": -100,
+		"cool": 50
+	},
+	{
+		"description": "Stopped for coffee. Took out your typewriter.",
+		"cost": 0,
+		"cool": 25
 	}
 ];
