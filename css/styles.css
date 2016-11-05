@@ -13,3 +13,11 @@
   padding-right: 2vw;
   height: 12vh;
 }
+.choices {
+  cursor: pointer
+}
+.choices span:hover {
+  text-decoration: underline;
+  background-color: #fff59b;
+}
+
