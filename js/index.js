@@ -5,7 +5,7 @@ $(document).ready(function() {
   $('#milesToGoNum').text(cities[currentCity].distanceRemaining);
 
   setInterval(function(){
-      imageInterval-=1;
+      imageInterval+=1;
       $('#backgroundImage').css('background-position', imageInterval + 'px 0');
-  }, 10);
+  }, 20);
 });
