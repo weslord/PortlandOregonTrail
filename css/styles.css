@@ -7,6 +7,12 @@
   width: 100vw;
 }
 
+#cityImage {
+  object-fit: cover;
+  height: 50vh;
+  width: 100vw;
+}
+
 #elCamino {
   float: right;
   padding-top: 33vh;
@@ -20,4 +26,3 @@
   text-decoration: underline;
   background-color: #fff59b;
 }
-
