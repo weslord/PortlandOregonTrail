@@ -55,7 +55,7 @@ var events = [
 		"cool": 100
 	},
 	{
-		"description": "Obtained a velocipede.",
+		"description": "Purchased a velocipede.",
 		"cost": -100,
 		"cool": 50
 	},
@@ -63,5 +63,10 @@ var events = [
 		"description": "Stopped for coffee. Took out your typewriter.",
 		"cost": 0,
 		"cool": 25
+	},
+	{
+		"description": "Became friends with a cop.",
+		"cost": 0,
+		"cool": 20
 	}
 ];
