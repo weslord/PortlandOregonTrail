@@ -19,7 +19,7 @@ class RestaurantManager {
 			new Restaurant("Rabbit Food Source", "Vegan", "Your favorite garden food."),
 			new Restaurant("Willy Billies", "Food-Truck", "Willy your Billy."),
 			new Restaurant("Chilli Billies", "Food-Truck", "Chilli your Dilly."),
-			new Restaurant("Dilli Billies", "Food-Trucq1`																																															k", "Dilly your Zilli."),
+			new Restaurant("Dilli Billies", "Food-Truck", "Dilly your Zilli."),
 			new Restaurant("Vegan Cookie Doughhouse", "Vegan", "Gluten free too."),
 		]
 	}
