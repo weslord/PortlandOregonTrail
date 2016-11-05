@@ -1,0 +1,6 @@
+#backgroundImage {
+  background-image: url('http://sereedmedia.com/srmwp/wp-content/uploads/kitten.jpg');
+  background-repeat: repeat-x;
+  height: 50vh;
+  width: 100vw;  
+}
