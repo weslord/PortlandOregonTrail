@@ -16,6 +16,8 @@ $(document).ready(function() {
     $('#milesTravelledNum').text(mileage);
     $('#milesToGoNum').text(TOTALMILES);   
     // $('<p> <span id="goWest">GO WEST</span></p>').appendTo('.choices');
+
+    setCityImage(cities[0]);
   }
 
   function goWest() {
@@ -28,16 +30,22 @@ $(document).ready(function() {
       }
 
       $('#currentCityName').text(cities[currentCity].name);
-      $('#milesTravelledNum').text(mileage);   
+      $('#milesTravelledNum').text(mileage);
     } else {
       $('#currentCityName').text(cities[cities.length - 1].name);
-      $('#milesToGoNum').text(0);   
+      $('#milesToGoNum').text(0);
     }
+    setCityImage(cities[currentCity]);
+  }
+
+  function setCityImage(city){
+    $('#backgroundImage').hide();
+    $('#cityImage').attr("src", city.img);
   }
 
   setUpStart();
 
-  $('#goWest').on('click', goWest); 
+  $('#goWest').on('click', goWest);
 
   setInterval(function(){
       imageInterval+=1;
