@@ -68,5 +68,25 @@ var events = [
 		"description": "Became friends with a cop.",
 		"cost": 0,
 		"cool": 20
+	},
+	{
+		"description": "Phone broke. You died of boredom",
+		"cost": 0,
+		"cool": 0
+	},
+	{
+		"description": "Stopped by to help a farmer cultivate his organic tomatoes.",
+		"cost": 100,
+		"cool": 100
+	},
+	{
+		"description": "Ate too much sashimi. Got mercury poisoning.",
+		"cost": 200,
+		"cool": 50
 	}
 ];
+
+var getRandomEvent = function() {
+	let randomNumber = Math.random() * 100;
+	return events[randomNumber % events.count]
+}
