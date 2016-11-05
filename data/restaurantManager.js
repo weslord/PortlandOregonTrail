@@ -1,7 +1,8 @@
 class Restaurant {
-	constructor(name, type) {
+	constructor(name, type, description) {
 		this.name = name
 		this.type = type
+		this.description = description
 	}
 }
 
@@ -9,17 +10,17 @@ class Restaurant {
 class RestaurantManager {
 	constructor() {
 		this.restaurants = [
-			new Restaurant("Joe's Diner", "family"),
-			new Restaurant("McDonalds", "fast-food"),
-			new Restaurant("Burger King", "fast-food"),
-			new Restaurant("Old Town Bakery", "family"),
-			new Restaurant("Monumental Fried Chicken", "fast-food"),
-			new Restaurant("Cheap and Chillies", "Vegan"),
-			new Restaurant("Rabbit Food Source", "Vegan"),
-			new Restaurant("Willy Billies", "Food-Truck"),
-			new Restaurant("Chilli Billies", "Food-Truck"),
-			new Restaurant("Dilli Billies", "Food-Truck"),
-			new Restaurant("Vegan Cookie Doughhouse", "Vegan"),
+			new Restaurant("Joe's Diner", "family", "Food for the family."),
+			new Restaurant("McDonalds", "fast-food", "Ronald's home."),
+			new Restaurant("Burger King", "fast-food", "BK yo belly."),
+			new Restaurant("Old Town Bakery", "family", "Old fashioned sweets."),
+			new Restaurant("Monumental Fried Chicken", "fast-food", "Bwuk bwuk"),
+			new Restaurant("Cheap n' Chillies", "Vegan", "Veganism"),
+			new Restaurant("Rabbit Food Source", "Vegan", "Your favorite garden food."),
+			new Restaurant("Willy Billies", "Food-Truck", "Willy your Billy."),
+			new Restaurant("Chilli Billies", "Food-Truck", "Chilli your Dilly."),
+			new Restaurant("Dilli Billies", "Food-Truck", "Dilly your Zilli."),
+			new Restaurant("Vegan Cookie Doughhouse", "Vegan", "Gluten free too."),
 		]
 	}
 
