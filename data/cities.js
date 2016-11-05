@@ -1,52 +1,52 @@
 var cities = [
   {
     name: "Omaha",
-    distance: 0,
+    distanceToNextLocation: 56,
     distanceRemaining: 1893
   },
   {
     name: "Lincoln",
-    distance: 56,
+    distanceToNextLocation: 271,
     distanceRemaining: 1837
   },
   {
     name: "Trenton",
-    distance: 271,
+    distanceToNextLocation: 255,
     distanceRemaining: 1566
   },
   {
     name: "Boulder",
-    distance: 255,
+    distanceToNextLocation: 250,
     distanceRemaining: 1311
   },
   {
     name: "Grand Junction",
-    distance: 250,
+    distanceToNextLocation: 284,
     distanceRemaining: 1061
   },
   {
     name: "Salt Lake City",
-    distance: 284,
+    distanceToNextLocation: 218,
     distanceRemaining: 777
   },
   {
     name: "Twin Falls",
-    distance: 218,
+    distanceToNextLocation: 128,
     distanceRemaining: 559
   },
   {
     name: "Boise",
-    distance: 128,
+    distanceToNextLocation: 128,
     distanceRemaining: 431
   },
   {
     name: "Baker City",
-    distance: 128,
+    distanceToNextLocation: 303,
     distanceRemaining: 303
   },
   {
     name: "Portland",
-    distance: 303,
+    distanceToNextLocation: 0,
     distanceRemaining: 0
   }
 ]
