@@ -1,6 +1,8 @@
 $(document).ready(function() {
   var imageInterval = 0;
 
+  var game = new Game(); 
+
   var currentCity;
   var mileage; //will be on instance of car
   const TOTALMILES = 1893;
@@ -13,7 +15,7 @@ $(document).ready(function() {
     $('#currentCityName').text(cities[0].name);
     $('#milesTravelledNum').text(mileage);
     $('#milesToGoNum').text(TOTALMILES);   
-    $('<p> <span id="goWest">GO WEST</span></p>').appendTo('.choices');
+    // $('<p> <span id="goWest">GO WEST</span></p>').appendTo('.choices');
   }
 
   function goWest() {

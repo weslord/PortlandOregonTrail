@@ -11,12 +11,19 @@ class Game {
 		]
 		this.eventsManager = new EventsManager()
 	}
+  changeCool(num) {
+    this.cool += num;
+  }
 
-	next() {
-		this.car.gas -= 10
+  changeMoney(num) {
+    this.wealth += num;
+  }
+
+	goWest() {
+		this.car.gas -= 10 //TODO: Calculate gas to next city
 		let event = this.eventsManager.getRandomEvent()
-		this.cool += event.cool
-		this.wealth += event.cost
-		return this.car.gas
+    changeCool(event.cool);
+    changeMoney(event.wealth);
+    return this.car.gas; //particular reason? 
 	}
 }
