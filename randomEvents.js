@@ -90,3 +90,6 @@ var getRandomEvent = function() {
 	let randomNumber = Math.random() * 100;
 	return events[randomNumber % events.count]
 }
+
+module.exports.events = events;
+module.exports.getRandomEvent = getRandomEvent;
