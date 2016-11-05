@@ -6,3 +6,10 @@
   height: 50vh;
   width: 100vw;
 }
+
+#elCamino {
+  float: right;
+  padding-top: 33vh;
+  padding-right: 2vw;
+  height: 12vh;
+}
