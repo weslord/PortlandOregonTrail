@@ -41,10 +41,9 @@ class Game {
 
   updateStatesEvent(event) {
     if (event != undefined) {
-      console.log('hit event update')
       this.changeCool(event.cool);
       this.changeMoney(event.cost);
-      notification(event.description);
+      notification(event.description, event.cool, event.cost);
     }
   }
 	goWest() {
@@ -54,13 +53,8 @@ class Game {
       this.car.mileage += this.distanceFromLastCity();
     }
     this.car.travel(this.distanceFromLastCity());
-		var event = this.eventsManager.getRandomEvent();
-    this.updateStatesEvent(event);
-    console.log('event: ' + event);
-    // if (event != undefined) {
-    //   this.changeCool(event.cool);
-    //   this.changeMoney(event.cost);
-    // }
+		// var event = this.eventsManager.getRandomEvent();
+    // this.updateStatesEvent(event);
     return event;
   }
 

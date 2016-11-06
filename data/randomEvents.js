@@ -19,9 +19,9 @@ class EventsManager {
 		  new Event("Find vinyl record in thrift store while passing by.", 100, 100),
 		  new Event("Ironically stops at historic monument, don't know why.", 0, 100),
 		  new Event("You stop to see a statue of Britney Spears. You spot someone you know, and you hide.", 0, -50),
-		  new Event("Need to go to hospital because jeans are too tight.", -2000, 100),
+		  new Event("Skinny jeans are too tight. Must undergo surgery to remove them.", -2000, 100),
 		  new Event("Purchased a velocipede.", -100, 50),
-		  new Event("Stopped for coffee. Took out the typewriter.", 0, 25),
+		  new Event("Stopped for coffee. Took out the typewriter.", -10, 25),
 		  new Event("Became friends with a cop.", 0, 20),
 		  new Event("Phone broke. You died of boredom.", 0, 0),
 		  new Event("Stopped by to help a farmer cultivate his organic tomatoes.", 100, 100),
@@ -30,9 +30,9 @@ class EventsManager {
 	}
 
 	getRandomEvent() {
-    // let ran = Math.random();
+    let ran = Math.random();
     // console.log(ran);
-    // if (ran > 0.5) { return; }
+    if (ran > 0.5) { return; }
       let randomNumber = Math.floor(Math.random() * this.events.length);
       return this.events[randomNumber]
 	}
