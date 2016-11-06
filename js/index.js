@@ -91,7 +91,12 @@ $(document).ready(function() {
   updateStats();
   $('#cityImage').hide();
 
+  //buttons
   $('#goWest').on('click', countdownMilage);
+  $('#buyGas').on('click', function() {
+    game.refuelCar()
+    updateStats();
+  });
 
   var scrollBackground;
 
