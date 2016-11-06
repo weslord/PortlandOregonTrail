@@ -20,7 +20,7 @@ class Person {
 			if (!this.isDead) {
 				this.die()
 			}
-			
+
 			$('#passenger' + this.id + ' .hungerBar').css('width', '100%');
 		} else {
 			$('#passenger' + this.id + ' .hungerBar').css('width', "" + this.hunger + '%');
@@ -37,6 +37,7 @@ class Person {
 	feed() {
 		let oldHunger = this.hunger
 		this.hunger = 0
+		$('#passenger' + this.id + ' .hungerBar').css('width', "0%");
 		return oldHunger
 	}
 }
@@ -51,7 +52,7 @@ class CharacterManager {
 			new Person('Chet', 'Licoln', -10, 220, 28, 4),
 			new Person('Chad', 'Fort Worth', 10, 100, 18, 5),
 			new Person('Jess', 'Davenport', 100, 50, 10, 6),
-			new Person('Jo', 'Omaha', 10, 50, 5, 7)
+			new Person('Peyton', 'Omaha', 10, 50, 5, 7)
 		]
 	}
 }
