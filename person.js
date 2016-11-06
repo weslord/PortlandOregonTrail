@@ -28,6 +28,7 @@ class Person {
     this.isDead = true
 
 		$('#passenger' + this.id + ' .passengerName').addClass('deadPassenger').removeClass('passenger')  
+		notification("" + this.name + " has died.")
   }
 
 	feed() {
