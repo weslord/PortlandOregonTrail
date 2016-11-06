@@ -29,9 +29,9 @@ body {
   height: 12vh;
 }
 .choices {
+  text-decoration: underline;
   cursor: pointer
 }
 .choices span:hover {
-  text-decoration: underline;
   background-color: #fff59b;
 }
