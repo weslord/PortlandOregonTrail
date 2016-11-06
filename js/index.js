@@ -26,20 +26,20 @@ $(document).ready(function() {
   function setGas(num) {
     $('#gasRemainingNum').text(num);
   }
-  function setUpStart() {
-    var mileage = game.getCar().mileage;
-    var cityName = game.currentCity.name;
-
-    setCityName(cityName);
-    setMilesTravelled(mileage);
-    setMilesToGo(game.TOTALMILES - mileage);
-    setCoolPoints(game.cool);
-    setMoney(game.wealth);
-    setGas(game.getCar().currentTank);
-
-    // setCityImage(cities[0]);
-    $('#cityImage').hide();
-  }
+  // function setUpStart() {
+  //   var mileage = game.getCar().mileage;
+  //   var cityName = game.currentCity.name;
+  //
+  //   setCityName(cityName);
+  //   setMilesTravelled(mileage);
+  //   setMilesToGo(game.TOTALMILES - mileage);
+  //   setCoolPoints(game.cool);
+  //   setMoney(game.wealth);
+  //   setGas(game.getCar().currentTank);
+  //
+  //   // setCityImage(cities[0]);
+  //   $('#cityImage').hide();
+  // }
 
   function countdownMilage(){
     var milesInTurn = 0;
@@ -93,7 +93,8 @@ $(document).ready(function() {
     $('#backgroundImage').fadeIn(1000, null);
   }
 
-  setUpStart();
+  updateStats();
+  $('#cityImage').hide();
 
   $('#goWest').on('click', countdownMilage);
 
