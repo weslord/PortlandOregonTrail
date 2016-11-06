@@ -35,7 +35,7 @@ body {
 	width:20%;
 }
 
-#restaurantOptions { 
+#restaurantOptions, #buyingGasInfo { 
     width:20%;
     overflow-x:scroll;
 }
