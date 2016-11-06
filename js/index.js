@@ -29,6 +29,9 @@ $(document).ready(function() {
   function setGas(num) {
     $('#gasRemainingNum').text(num);
   }
+  function getEvent() {
+    return game.eventsManger.getRandomEvent();
+  }
 
   function countdownMilage(){
     var milesInTurn = 0;
@@ -48,10 +51,10 @@ $(document).ready(function() {
         clearInterval(timeInterval);
         updateStats();
         stopScrollingBackground();
-
       }
-
     }, 50)
+    var event = game.eventsManager.getRandomEvent();
+    game.updateStatesEvent(event);
   }
   function updateStats() {
     var mileage = game.getCar().mileage;
@@ -66,7 +69,7 @@ $(document).ready(function() {
   }
 
   function goWest() {
-    game.goWest();
+    var event = game.goWest();
     updateStats();
     stopScrollingBackground();
     // setCityImage(cities[game.currentCityIndex]);

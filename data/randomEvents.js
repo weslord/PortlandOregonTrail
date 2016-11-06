@@ -11,7 +11,7 @@ class EventsManager {
 		this.events = [
 		  new Event("Flat tire, too bad man.", -100, 100),
 		  new Event("Nobody liked your selfie on Facebook.", 0, -25),
-		  new Event("People have discovered you like Nickleback.", 0, -100),
+		  new Event("A Nickelback song was found on your playlist.", 0, -100),
 		  new Event("Trust fund invested in Silicon Valley app failure.", -150, 25),
 		  new Event("Bought an iPhone instead of an Android. No money for groceries.", -1000, 1000),
 		  new Event("Used parent's credit card to pay off maintenance fees.", 200, -200),
@@ -30,7 +30,10 @@ class EventsManager {
 	}
 
 	getRandomEvent() {
-		let randomNumber = Math.floor(Math.random() * this.events.length);
-		return this.events[randomNumber]
+    // let ran = Math.random();
+    // console.log(ran);
+    // if (ran > 0.5) { return; }
+      let randomNumber = Math.floor(Math.random() * this.events.length);
+      return this.events[randomNumber]
 	}
 }

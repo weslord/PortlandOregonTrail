@@ -39,6 +39,14 @@ class Game {
     return cities[this.currentCityIndex - 1].distanceRemaining - this.currentCity.distanceRemaining;
   }
 
+  updateStatesEvent(event) {
+    if (event != undefined) {
+      console.log('hit event update')
+      this.changeCool(event.cool);
+      this.changeMoney(event.cost);
+      notification(event.description);
+    }
+  }
 	goWest() {
     if (this.currentCityIndex < cities.length) {
       this.currentCityIndex++;
@@ -47,8 +55,13 @@ class Game {
     }
     this.car.travel(this.distanceFromLastCity());
 		var event = this.eventsManager.getRandomEvent();
-    this.changeCool(event.cool);
-    this.changeMoney(event.cost);
+    this.updateStatesEvent(event);
+    console.log('event: ' + event);
+    // if (event != undefined) {
+    //   this.changeCool(event.cool);
+    //   this.changeMoney(event.cost);
+    // }
+    return event;
   }
 
 	refuelCar() {
