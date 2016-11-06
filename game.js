@@ -26,7 +26,7 @@ class Game {
   currentCity() {
     return this.currentCity;
   }
-  
+
   currentCityIndex() {
     return this.currentCityIndex;
   }
@@ -44,7 +44,7 @@ class Game {
       this.currentCityIndex++;
       this.currentCity = cities[this.currentCityIndex];
       this.car.mileage += this.distanceFromLastCity();
-    } 
+    }
     this.car.travel(this.distanceFromLastCity());
 		var event = this.eventsManager.getRandomEvent();
     this.changeCool(event.cool);

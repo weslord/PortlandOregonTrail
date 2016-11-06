@@ -7,13 +7,15 @@ body {
   font-family: "C64";
   background-color: black;
   color:white;
+  margin:0;
 }
 
 .uiContainer {
   float:left;
-  width:30%;
+  width:28%;
   margin-left:2%;
-  border: 1px solid grey;
+  padding:1em 0.5em;
+  border:2px solid grey;
 }
 
 .secTitle {
@@ -45,6 +47,20 @@ body {
   padding-top: 33vh;
   padding-right: 2vw;
   height: 12vh;
+}
+
+#notification {
+  box-sizing: border-box;
+  display:none;
+  height:824px;
+  width:840px;
+  padding-left:500px;
+  padding-right:150px;
+  padding-top:200px;
+  background-image: url('../images/hipster-hand.png');
+  position:absolute;
+  top:50px;
+  left:150px;
 }
 
 .action {
