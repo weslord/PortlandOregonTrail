@@ -134,6 +134,8 @@ class Game {
 		this.changeCool(restaurant.cool);
 	}
   isGameOver() {
-    return this.wealth <= 0 || this.cool <= -100 || this.people.length <= 0;
+    var everyoneDead = this.people[0].isDead && game.people[1].isDead && game.people[2].isDead &&  game.people[3].isDead;
+    console.log('gas' + this.car.currentTank);
+    return everyoneDead || this.cool <= -100 || this.people.length <= 0 || this.car.currentTank <= 0;
   }
 }
