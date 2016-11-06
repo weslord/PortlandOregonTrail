@@ -148,7 +148,7 @@ $(document).ready(function() {
       $('#buyingGasInfo').hide();
       $('#actions').show();
       $('gasOptionsContainer').empty();
-      $('#moneyLeft').text(Math.round(game.wealth * 100) / 100);
+      $('#moneyLeftNum').text(Math.round(game.wealth * 100) / 100);
     });
   }
   function forgetIt() {
