@@ -156,6 +156,7 @@ $(document).ready(function() {
         .appendTo("#restaurantOptionsContainer")
         .on('click', function(){
           game.selectRestaurant(restaurant);
+          game.feedPeople(restaurant);
           setMoney(game.wealth);
           setCoolPoints(game.cool);
           $('#restaurantOptionsContainer').empty();
