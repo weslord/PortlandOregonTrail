@@ -14,6 +14,7 @@ class Game {
     this.currentCityIndex = 0;
     this.currentCity = cities[this.currentCityIndex];
 		this.eventsManager = new EventsManager()
+    this.restaurantManager = new RestaurantManager()
     this.atCity = true;
 	}
 
@@ -58,7 +59,12 @@ class Game {
       notification(event.description, event.cool, event.cost);
     }
   }
+
 	goWest() {
+    for person in this.people {
+      person.becomeHungrier()
+    }
+
     if (this.currentCityIndex < cities.length) {
       this.currentCityIndex++;
       this.currentCity = cities[this.currentCityIndex];
@@ -82,6 +88,14 @@ class Game {
       notification("Not enough money for gas!");
     }
 	}
+
+  feedPeople(restaurant) {
+    for person in this.people {
+      person.feed()
+    }
+    
+    this.wealth -= restaurant.cost
+  }
 
 	selectRestaurant(restaurant) {
 		this.changeMoney(restaurant.price);
