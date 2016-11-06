@@ -76,14 +76,28 @@ class Game {
     // this.updateStatesEvent(event);
     return event;
   }
+  getGasStats() {
+    var costPerGallon = this.car.generateCostPerGallon();
+    var requiredFuel = this.car.MAX_TANK_CAPACITY - this.car.currentTank;
+    var totalCost = requiredFuel * costPerGallon; 
+    console.log('requiredFuel ' + requiredFuel);
+    console.log('total cost ' + totalCost);
+    
+    return {
+      costPerGallon: costPerGallon,
+      amountToFill: requiredFuel, 
+      totalCost: totalCost
+    }
+     
+  }
 
-	refuelCar() {
-		let requiredFuel = this.car.requiredFuel();
-		let randomNumber = Math.random();
-		let costPerGallon = 2 + randomNumber;
-		let costOfGas = requiredFuel * costPerGallon;
-    if (costOfGas <= this.wealth) {
-      this.wealth -= costOfGas;
+	refuelCar(totalCost) {
+		// let requiredFuel = this.car.requiredFuel();
+		// let randomNumber = Math.random();
+		// let costPerGallon = 2 + randomNumber;
+		// let costOfGas = requiredFuel * costPerGallon;
+    if (totalCost <= this.wealth) {
+      this.wealth -= totalCost;
       this.car.refuel();
     } else {
       notification("Not enough money for gas!");

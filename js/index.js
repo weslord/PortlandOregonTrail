@@ -106,10 +106,12 @@ $(document).ready(function() {
   updateStats();
   $('#cityImage').hide();
   $('#restaurantOptions').hide();
+  $('#buyinGasInfo').hide();
 
   //buttons
   $('#goWest').on('click', countdownMilage);
   $('#getFood').on('click', getFood);
+  $('#buyGas').on('click', buyGas);
 
   function getFood(){
     $('#actions').hide();
@@ -129,10 +131,32 @@ $(document).ready(function() {
         });
     })
   }
-  $('#buyGas').on('click', function() {
-    game.refuelCar()
+  function buyGas() {
+    $('#actions').hide();
+    var gasStats = game.getGasStats();
+    var costPerGallonRounded = Math.round(gasStats.costPerGallon * 100) / 100;
+    var amountToFillRounded = Math.round(gasStats.amountToFill * 100) / 100;
+    var totalCostRounded = Math.round(gasStats.totalCost * 100) / 100;
+    $('#buyingGasInfo').show();
+    $('#gasPrice').text(costPerGallonRounded);
+    $('#gasTotalGallons').text(amountToFillRounded);
+    $('#gasTotalCost').text(totalCostRounded);
+    $('<p>Pay Cash</p>').addClass('action').appendTo('#gasOptionsContainer').on('click', function(){
+      game.refuelCar(gasStats.totalCost);
+      $('#buyingGasInfo').hide();
+      $('#actions').show();
+      $('gasOptionsContainer').empty();
+      // var wealthRounded = Math.round(game.wealth * 100) / 100;
+      $('#moneyLeft').text(Math.round(game.wealth * 100) / 100);
+      updateStats();
+    });
+    // $('<p>Pay Cool</p>').addClass('action').appendTo('#gasOptionsContainer').on('click', function() {});
+    // $('<p>Forget it</p>').addClass('action').appendTo('#gasOptionsContainer').on('click', function() {
+    //   $('#gasOptionsContainer').hide();
+    //   $('#actions').show();
+    // });
     updateStats();
-  });
+  }
 
   var scrollBackground;
 

@@ -94,3 +94,6 @@ body {
 .action span:hover {
   background-color: #fff59b;
 }
+.gasCosts {
+  color: green
+}
