@@ -1,10 +1,10 @@
 $(document).ready(function() {
   var imageInterval = $( window ).width();
   var people = [
-    new Person("Bill", 100, 300, 20, 0),
-    new Person("Bob", 300, 100, 30, 1),
-    new Person("Jack", 400, 250, 40, 2),
-    new Person("Jill", 240, 3000, 50, 3)
+    new Person("Bill", 100, 300, 10, 0),
+    new Person("Bob", 300, 100, 15, 1),
+    new Person("Jack", 400, 250, 20, 2),
+    new Person("Jill", 240, 3000, 25, 3)
   ]
   var game = new Game(people);
   const TOTALMILES = 1893;
