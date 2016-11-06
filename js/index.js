@@ -1,20 +1,30 @@
 $(document).ready(function() {
   var imageInterval = 0;
 
-  var currentCity;
-  var mileage; //will be on instance of car
+  var game = new Game(); 
   const TOTALMILES = 1893;
 
-  var cityOptions = [];
+  var currentCity;
+  var currentCityIndex;
+  var mileage; //will be on instance of car
+  var distanceRemaining = TOTALMILES;
 
+  function setCityName(name) {
+    $('#currentCityName').text(name);
+  }
+  function setMilesTravelled(num) {
+    $('#milesTravelledNum').text(num);
+  }
+  function setMilesToGo(num) {
+    $('#milesToGoNum').text(num);   
+  }
   function setUpStart() {
-    mileage = 0;
-    currentCity = 0;
-    distanceRemaining = TOTALMILES - mileage;
-    $('#currentCityName').text(cities[0].name);
-    $('#milesTravelledNum').text(mileage);
-    $('#milesToGoNum').text(TOTALMILES);
-    $('<p> <span id="goWest">GO WEST</span></p>').appendTo('.choices');
+    var mileage = game.getCar().mileage;
+    var cityName = game.currentCity.name;
+
+    setCityName(cityName);
+    setMilesTravelled(mileage);
+    setMilesToGo(game.TOTALMILES - mileage);
 
     setCityImage(cities[0]);
   }
@@ -24,29 +34,25 @@ $(document).ready(function() {
       setRollingImage();
       distanceRemaining--;
       $('#milesToGo').text(distanceRemaining);
-      if (distanceRemaining < cities[currentCity + 1].distanceRemaining){
+      if (distanceRemaining < cities[game.currentCityIndex + 1].distanceRemaining){
         clearInterval(timeInterval)
         goWest();
       }
     }, 50)
   }
+  function updateStats() {
+    var mileage = game.getCar().mileage;
+    var cityName = game.currentCity.name;
+
+    setCityName(cityName);
+    setMilesTravelled(mileage);
+    setMilesToGo(game.TOTALMILES - mileage);
+  }
 
   function goWest() {
-    (currentCity == undefined) ? currentCity = 0 : currentCity++;
-    if (currentCity < cities.length) {
-      if (currentCity == 0) {
-        mileage = TOTALMILES - cities[currentCity].distanceRemaining;
-      } else {
-        mileage += cities[currentCity - 1].distanceRemaining - cities[currentCity].distanceRemaining;
-      }
-
-      $('#currentCityName').text(cities[currentCity].name);
-      $('#milesTravelledNum').text(mileage);
-    } else {
-      $('#currentCityName').text(cities[cities.length - 1].name);
-      $('#milesToGoNum').text(0);
-    }
-    setCityImage(cities[currentCity]);
+    game.goWest();
+    updateStats();
+    setCityImage(cities[game.currentCityIndex]);
   }
 
   function setCityImage(city){
