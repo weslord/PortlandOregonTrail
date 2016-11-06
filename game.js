@@ -1,5 +1,5 @@
 class Game {
-	constructor(people) {
+	constructor() {
     this.TOTALMILES = 1893;
 		this.characterManager = new CharacterManager()
     this.car = new Car()
@@ -18,8 +18,18 @@ class Game {
 	setUpPeople(people){
 		this.people = people;
 		for (var person in this.people) {
-			this.cool += person.cool
-			this.wealth += person.wealth
+			this.cool += this.people[person].cool
+			this.wealth += this.people[person].wealth
+			var peep = this.people[person];
+
+			$("<div />")
+				.append(`
+					<span class='passengerName'>${peep.name}</span>
+					<div class="hungerContainer"><div class="hungerBar"></div></div>
+				`)
+				.addClass('passenger')
+				.attr('id', `passenger${person}`)
+				.appendTo('#passengers')
 		}
 	}
 

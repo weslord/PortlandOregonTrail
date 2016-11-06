@@ -17,7 +17,7 @@ class Person {
 
 		if (this.hunger >= 100) {
 			this.isDead = true
-			// 
+			//
 			// $('#passenger' + this.id
 			$('#passenger' + this.id + ' .hungerBar').css('width', '100%');
 		} else {
@@ -35,14 +35,14 @@ class Person {
 class CharacterManager {
 	constructor(){
 		this.characters = [
-			new Person('Dave'),
-			new Person('Rob'),
-			new Person('Sarah'),
-			new Person('Nicole'),
-			new Person('Chet'),
-			new Person('Chad'),
-			new Person('Jess'),
-			new Person('Jo')
+			new Person('Dave', 100, 50, 20, 0),
+			new Person('Rob', 100, 50, 20, 0),
+			new Person('Sarah', 100, 50, 20, 0),
+			new Person('Nicole', 100, 50, 20, 0),
+			new Person('Chet', 100, 50, 20, 0),
+			new Person('Chad', 100, 50, 20, 0),
+			new Person('Jess', 100, 50, 20, 0),
+			new Person('Jo', 100, 50, 20, 0)
 		]
 	}
 }

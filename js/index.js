@@ -1,12 +1,6 @@
 $(document).ready(function() {
   var imageInterval = $( window ).width();
-  var people = [
-    new Person("Bill", 100, 300, 20, 0),
-    new Person("Bob", 300, 100, 30, 1),
-    new Person("Jack", 400, 250, 40, 2),
-    new Person("Jill", 240, 3000, 50, 3)
-  ]
-  var game = new Game(people);
+  var game = new Game();
   const TOTALMILES = 1893;
 
   var currentCity;
@@ -111,7 +105,7 @@ $(document).ready(function() {
     updateStats();
     stopScrollingBackground();
   }
-  
+
   function setCityImage(city){
     stopScrollingBackground();
     $('#backgroundImage').hide();
@@ -187,12 +181,12 @@ $(document).ready(function() {
 
   function setupCharacterScreen(){
     game.characterManager.characters.forEach(function(character){
-      $("<div/>")
+      $("<tr/>")
       .append(`
-        <span>${character.name}</span>
-        <span>${character.money}</span>
-        <span>${character.cool}</span>
-        <span>${character.hungerRate}</span>
+        <td>${character.name}</td>
+        <td>${character.wealth}</td>
+        <td>${character.cool}</td>
+        <td>${character.hungerRate}</td>
       `)
       .addClass('action')
       .addClass('characterSelectionIndividual')
@@ -210,7 +204,7 @@ $(document).ready(function() {
   };
 
   $('#acceptCharacters').on('click', function(){
-    game.people = selectedCharacters;
+    game.setUpPeople(selectedCharacters)
     $('#characterSelection').hide();
   })
 

@@ -106,7 +106,7 @@ body {
 }
 
 .action span:hover {
-  background-color: #fff59b;
+  /*background-color: #fff59b;*/
 }
 
 .gasCosts {
@@ -149,14 +149,8 @@ body {
   border:2px solid grey;
 }
 
-.characterSelectionIndividual {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
 .characterSelected {
-  background-color: #333333;
+  background: #8C4E27;
 }
 
 #characterSelectionButtons {
@@ -165,4 +159,8 @@ body {
   justify-content: space-between;
   margin: 30px;
   text-align: center;
+}
+
+#characterSelectionContainer {
+  width: 100%
 }
