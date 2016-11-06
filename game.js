@@ -64,14 +64,12 @@ class Game {
     // for person in this.people {
     //   person.becomeHungrier()
     // }
-		console.log(this.wealth);
 
     if (this.currentCityIndex < cities.length) {
       this.currentCityIndex++;
       this.currentCity = cities[this.currentCityIndex];
       this.car.mileage += this.distanceFromLastCity();
     }
-    this.car.travel(this.distanceFromLastCity());
 		// var event = this.eventsManager.getRandomEvent();
     // this.updateStatesEvent(event);
     return event;
