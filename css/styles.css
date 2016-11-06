@@ -5,6 +5,19 @@
 
 body {
   font-family: "C64";
+  background-color: black;
+  color:white;
+}
+
+.uiContainer {
+  float:left;
+  width:30%;
+  margin-left:2%;
+  border: 1px solid grey;
+}
+
+.secTitle {
+  font-size:1.2em;
 }
 
 #backgroundImage {
@@ -22,16 +35,23 @@ body {
   width: 100vw;
 }
 
+#description {
+  padding-top:1em;
+}
+
 #elCamino {
   float: right;
   padding-top: 33vh;
   padding-right: 2vw;
   height: 12vh;
 }
-.choices {
+
+.action {
   text-decoration: underline;
-  cursor: pointer
+  cursor: pointer;
+  margin-top:1em;
 }
-.choices span:hover {
+
+.action span:hover {
   background-color: #fff59b;
 }
