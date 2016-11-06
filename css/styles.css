@@ -103,3 +103,22 @@ body {
 .action span:hover {
   background-color: #fff59b;
 }
+
+.passenger {
+  
+}
+
+.hungerContainer {
+  margin: 1em 0;
+  padding: 0;
+  border:2px solid brown;
+  height:1em;
+  
+}
+.hungerBar {
+  padding: 0;
+  margin: 0;
+  height:100%;
+  width:25%;
+  background-color:white;
+}

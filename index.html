@@ -11,10 +11,8 @@
   </head>
 
   <body>
-    <div id="intro">
-      
-    </div>
-      <div id="gameplay">
+    <div id="intro"></div>
+    <div id="gameplay">
       <h1 id="siteTitle">The Portland Oregon Trail</h1>
       <div id='backgroundImage'>
         <img id='elCamino' src='./images/el-camino.png'/>
@@ -36,50 +34,50 @@
           <div id="restaurantOptionsContainer"></div>
         </div>
 
-        <div class='uiContainer' id='currentStatus'>
-          <h3 class='secTitle'>Status:</h3>
-          <p id='currentCity'>Current City: <!-- change from next to current -->
-            <span id='currentCityName'></span>
-          </p>
-          <p id='milesTravelled'>Miles Travelled:
-            <span id='milesTravelledNum'></span>
-          </p>
+      <div class='uiContainer' id='currentStatus'>
+        <h3 class='secTitle'>Status:</h3>
+        <p id='currentCity'>Current City: <!-- change from next to current -->
+          <span id='currentCityName'></span>
+        </p>
+        <p id='milesToNext'>Miles To Next City:
+          <span id='milesToNextNum'></span>
+        </p>
+        <p id='milesToGo'>Miles To Portland:
+          <span id='milesToGoNum'></span>
+        </p>
+        <p id='milesTravelled'>Miles Travelled:
+          <span id='milesTravelledNum'></span>
+        </p>
+        <p id='gasRemaining'>Gas in Tank:
+          <span id='gasRemainingNum'></span> gal
+        </p>
+        <p id='moneyLeft'>Money:
+          $<span id='moneyLeftNum'></span>
+        </p>
+        <p id='coolPoints'>Coolness:
+          <span id='coolPointsNum'></span>%
+        </p>
+        <!-- move hunger to passengers?
+        <p id='hungerPoints'>Hunger:
+          <span id='hungerPointsNum'></span>
+        </p> -->
+      </div>
 
-          <p id='milesToNext'>Miles To Next City:
-            <span id='milesToNextNum'></span>
-          </p>
-          <p id='milesToGo'>Miles To Portland:
-            <span id='milesToGoNum'></span>
-          </p>
-          <p id='gasRemaining'>Gas in Tank:
-            <span id='gasRemainingNum'></span> gal
-          </p>
-          <p id='moneyLeft'>Money:
-            $<span id='moneyLeftNum'></span>
-          </p>
-          <p id='coolPoints'>Coolness:
-            <span id='coolPointsNum'></span>%
-          </p>
-          <!-- move hunger to passengers?
-          <p id='hungerPoints'>Hunger:
-            <span id='hungerPointsNum'></span>
-          </p> -->
-        </div>
 
         <div class='uiContainer' id='passengers'>
           <h3 class='secTitle'>Passengers:</h3>
 
-          <div class='passenger' id='passenger0'>
-            <div class="hungerBar">John</div>
+          <div class='passenger' id='passenger0'>John
+            <div class="hungerContainer"><div class="hungerBar"></div></div>
           </div>
-          <div class='passenger' id='passenger1'>
-            <div class="hungerBar">Paul</div>
+          <div class='passenger' id='passenger1'>Paul
+            <div class="hungerContainer"><div class="hungerBar"></div></div>
           </div>
-          <div class='passenger' id='passenger2'>
-            <div class="hungerBar">George</div>
+          <div class='passenger' id='passenger2'>George
+            <div class="hungerContainer"><div class="hungerBar"></div></div>
           </div>
-          <div class='passenger' id='passenger3'>
-            <div class="hungerBar">Ringo</div>
+          <div class='passenger' id='passenger3'>Ringo
+            <div class="hungerContainer"><div class="hungerBar"></div></div>
           </div>
         </div>
       </div>

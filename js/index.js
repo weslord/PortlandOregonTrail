@@ -12,19 +12,19 @@ $(document).ready(function() {
     $('#currentCityName').text(name);
   }
   function setMilesTravelled(num) {
-    $('#milesTravelledNum').text(num);
+    $('#milesTravelledNum').text(Math.floor(num));
   }
   function setMilesToGo(num) {
-    $('#milesToGoNum').text(num);
+    $('#milesToGoNum').text(Math.floor(num));
   }
   function setMilesToNext(num) {
-    $('#milesToNextNum').text(num);
+    $('#milesToNextNum').text(Math.floor(num));
   }
   function setCoolPoints(num) {
-    $('#coolPointsNum').text(num);
+    $('#coolPointsNum').text(Math.floor(num));
   }
   function setMoney(num) {
-    $('#moneyLeftNum').text(num);
+    $('#moneyLeftNum').text(Math.floor(num));
   }
   function setGas(num) {
     $('#gasRemainingNum').text(Math.floor(num*10)/10);
@@ -45,40 +45,51 @@ $(document).ready(function() {
       setMilesToGo(distanceRemaining);
       setMilesToNext(distanceRemaining - nextCityDist + 1);
       setMilesTravelled(TOTALMILES - distanceRemaining);
+      game.getCar().travel(1);
+      updateStats();
+
       if (distanceRemaining < nextCityDist){ //arrived at city
         $('#goWest').show();
         atCity();
         clearInterval(timeInterval)
         goWest();
-        setTimeout(function(){
-          setCityImage(cities[game.currentCityIndex])
-        }, 1000)
       }
       if (milesInTurn > 49){
         $('#goWest').show();
         clearInterval(timeInterval);
-        updateStats();
         stopScrollingBackground();
       }
     }, 50)
     var event = game.eventsManager.getRandomEvent();
     game.updateStatesEvent(event);
   }
+  function initGame(){
+    $('#milesToNext').hide();
+    setCityImage(cities[game.currentCityIndex])
+    setMilesToGo(TOTALMILES);
+    setMilesTravelled(0);
+  }
+
   function atCity() {
     $('#buyGas').show();
     $('#getFood').show();
+    $('#currentCity').show();
+    $('#milesToNext').hide();
+    setTimeout(function(){
+      setCityImage(cities[game.currentCityIndex])
+    }, 1000)
   }
   function leftCity() {
     $('#buyGas').hide();
     $('#getFood').hide();
+    $('#currentCity').hide();
+    $('#milesToNext').show();
   }
+
   function updateStats() {
     var mileage = game.getCar().mileage;
     var cityName = game.currentCity.name;
-
     setCityName(cityName);
-   // setMilesTravelled(mileage);
-   // setMilesToGo(game.TOTALMILES - mileage);
     setCoolPoints(game.cool);
     setMoney(game.wealth);
     setGas(game.getCar().currentTank);
@@ -110,6 +121,7 @@ $(document).ready(function() {
   //buttons
   $('#goWest').on('click', countdownMilage);
   $('#getFood').on('click', getFood);
+  initGame();
 
   function getFood(){
     $('#actions').hide();
