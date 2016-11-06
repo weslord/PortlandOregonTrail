@@ -43,13 +43,6 @@ body {
 	padding: 10px;
 }
 
-/*
-.actions {
-	background: #8C4E27;
-}
-*/
-
-
 #el-camino-oxen {
 	width: 1000px;
 	}
@@ -138,7 +131,7 @@ body {
   cursor: pointer;
   padding:0.5em;
   margin-bottom: 0.5em;
-  width: 130px;
+  width: 160px;
 }
 
 .action:hover {
