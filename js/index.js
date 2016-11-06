@@ -208,6 +208,8 @@ $(document).ready(function() {
     });
   };
 
+  $('#intro').hide();
+
   $('#acceptCharacters').on('click', function(){
     game.setUpPeople(selectedCharacters)
     $('#characterSelection').hide();
