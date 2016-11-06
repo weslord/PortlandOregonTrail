@@ -64,7 +64,7 @@ $(document).ready(function() {
     game.updateStatesEvent(event);
   }
   function initGame(){
-    $('#milesToNext').hide();
+    $('#nextCity').text(cities[game.currentCityIndex+1].name);
     setCityImage(cities[game.currentCityIndex])
     setMilesToGo(TOTALMILES);
     setMilesTravelled(0);
@@ -74,7 +74,8 @@ $(document).ready(function() {
     $('#buyGas').show();
     $('#getFood').show();
     $('#currentCity').show();
-    $('#milesToNext').hide();
+    console.log(cities[game.currentCityIndex+1].name);
+    $('#nextCity').text(cities[game.currentCityIndex+2].name);
     setTimeout(function(){
       setCityImage(cities[game.currentCityIndex])
     }, 1000)
@@ -82,7 +83,7 @@ $(document).ready(function() {
   function leftCity() {
     $('#buyGas').hide();
     $('#getFood').hide();
-    $('#currentCity').hide();
+    $('#currentCity').text("On the road again!");
     $('#milesToNext').show();
   }
 

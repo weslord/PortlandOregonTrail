@@ -30,6 +30,11 @@ body {
 	width:20%;
 }
 
+#restaurantOptions { 
+    width:20%;
+    overflow-x:scroll;
+}
+
 .secTitle {
   font-size:1.2em;
 }
