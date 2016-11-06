@@ -16,14 +16,19 @@ class Person {
 		this.hunger += this.hungerRate + randomHunger
 
 		if (this.hunger >= 100) {
-			this.isDead = true
-			// 
-			// $('#passenger' + this.id
+			this.die()
+
 			$('#passenger' + this.id + ' .hungerBar').css('width', '100%');
 		} else {
 			$('#passenger' + this.id + ' .hungerBar').css('width', "" + this.hunger + '%');
 		}
 	}
+  
+  die() {
+    this.isDead = true
+
+		$('#passenger' + this.id + ' .passengerName').addClass('deadPassenger').removeClass('passenger')  
+  }
 
 	feed() {
 		let oldHunger = this.hunger
