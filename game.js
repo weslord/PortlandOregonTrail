@@ -14,6 +14,8 @@ class Game {
     this.currentCityIndex = 0;
     this.currentCity = cities[this.currentCityIndex];
 		this.eventsManager = new EventsManager()
+    this.restaurantManager = new RestaurantManager()
+    this.atCity = true;
 	}
 
   changeCool(num) {
@@ -57,7 +59,12 @@ class Game {
       notification(event.description, event.cool, event.cost);
     }
   }
+
 	goWest() {
+    for person in this.people {
+      person.becomeHungrier()
+    }
+
     if (this.currentCityIndex < cities.length) {
       this.currentCityIndex++;
       this.currentCity = cities[this.currentCityIndex];
@@ -74,9 +81,21 @@ class Game {
 		let randomNumber = Math.random();
 		let costPerGallon = 2 + randomNumber;
 		let costOfGas = requiredFuel * costPerGallon;
-		this.wealth -= costOfGas;
-    this.car.refuel();
+    if (costOfGas <= this.wealth) {
+      this.wealth -= costOfGas;
+      this.car.refuel();
+    } else {
+      notification("Not enough money for gas!");
+    }
 	}
+
+  feedPeople(restaurant) {
+    for person in this.people {
+      person.feed()
+    }
+    
+    this.wealth -= restaurant.cost
+  }
 
 	selectRestaurant(restaurant) {
 		this.changeMoney(restaurant.price);
