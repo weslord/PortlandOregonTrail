@@ -20,8 +20,8 @@ $(document).ready(function() {
   }
 
   function countdownMilage(){
+    setRollingImage();
     var timeInterval = setInterval(function(){
-      setRollingImage();
       distanceRemaining--;
       $('#milesToGo').text(distanceRemaining);
       if (distanceRemaining < cities[currentCity + 1].distanceRemaining){
@@ -50,22 +50,34 @@ $(document).ready(function() {
   }
 
   function setCityImage(city){
+    stopScrollingBackground();
     $('#backgroundImage').hide();
     $('#cityImage').attr("src", city.img);
-    $('#cityImage').show();
+    $('#cityImage').fadeIn(1000, null);
   }
 
   function setRollingImage(){
+    startScrollingBackground();
     $('#cityImage').hide();
-    $('#backgroundImage').show();
+    $('#backgroundImage').fadeIn(1000, null);
   }
 
   setUpStart();
 
   $('#goWest').on('click', countdownMilage);
 
-  setInterval(function(){
-      imageInterval+=1;
-      $('#backgroundImage').css('background-position', imageInterval + 'px 0');
-  }, 20);
+  var scrollBackground;
+
+  function stopScrollingBackground(){
+      clearInterval(scrollBackground);
+  }
+
+  function startScrollingBackground(){
+    scrollBackground = setInterval(function(){
+        imageInterval+=1;
+        $('#backgroundImage').css('background-position', imageInterval + 'px 0');
+    }, 20);
+  }
+
+
 });
