@@ -90,8 +90,30 @@ $(document).ready(function() {
 
   updateStats();
   $('#cityImage').hide();
+  $('#restaurantOptions').hide();
 
   $('#goWest').on('click', countdownMilage);
+  $('#getFood').on('click', getFood);
+
+  function getFood(){
+    $('#actions').hide();
+    $('#restaurantOptions').show();
+    game.restaurants.getRandomRestaurants().forEach(function(restaurant){
+      console.log(restaurant)
+      $("<div />")
+        .html(restaurant.name)
+        .addClass('action')
+        .appendTo("#restaurantOptionsContainer")
+        .on('click', function(){
+          game.selectRestaurant(restaurant);
+          setMoney(game.wealth);
+          setCoolPoints(game.cool);
+          $('#restaurantOptionsContainer').empty();
+          $('#restaurantOptions').hide();
+          $('#actions').show();
+        });
+    })
+  }
 
   var scrollBackground;
 
