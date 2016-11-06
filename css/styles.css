@@ -20,6 +20,47 @@ body {
 
 }
 
+.imageFlip {
+        -moz-transform: scaleY(-1);
+        -o-transform: scaleY(-1);
+        -webkit-transform: scaleY(-1);
+        transform: scaleY(-1);
+        filter: FlipV;
+        -ms-filter: "FlipV";
+}
+
+#intro #introButtons {
+	width: 400px;
+	margin: 0 auto;
+}
+
+
+.getStarted {
+	float: left;
+	padding: 10px;
+}
+
+.whatever {
+	float: left;
+	padding: 10px;
+}
+
+/*
+.actions {
+	background: #8C4E27;
+}
+*/
+
+
+#el-camino-oxen {
+	width: 1000px;
+	}
+
+#el-camino-oxen-wrapper {
+	width: 1000px;
+	margin: 0 auto;
+}
+
 .uiContainer {
   float:left;
   margin-left:2%;
@@ -100,9 +141,11 @@ body {
  background: #8C4E27;
 }
 
+/*
 .action span:hover {
   background-color: #fff59b;
 }
+*/
 
 .passenger {
   
