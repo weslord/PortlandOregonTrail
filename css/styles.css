@@ -16,8 +16,6 @@ body {
 }
 
 #intro {
-	border: 1px solid red;
-
 }
 
 .imageFlip {
@@ -158,6 +156,10 @@ body {
 
 .passenger {
 
+}
+.deadPassenger {
+  text-decoration:line-through;
+  background-color:#522;
 }
 
 .hungerContainer {
