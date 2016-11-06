@@ -2,8 +2,8 @@ class Game {
 	constructor() {
     this.TOTALMILES = 1893;
 		this.car = new Car()
-		this.cool = 100
-		this.wealth = 1000
+		this.cool = 100.0
+		this.wealth = 1000.0
 		this.people = [
 			new Person("Bill"),
 			new Person("Bob"),
@@ -45,11 +45,18 @@ class Game {
       this.currentCity = cities[this.currentCityIndex];
       this.car.mileage += this.distanceFromLastCity();
     } 
-   
-		this.car.gas -= 1 //TODO: Calculate gas to next city
-		let event = this.eventsManager.getRandomEvent()
+    this.car.travel(this.distanceFromLastCity());
+		var event = this.eventsManager.getRandomEvent();
     this.changeCool(event.cool);
     this.changeMoney(event.wealth);
-    return this.car.gas; //particular reason? 
+  }
+
+	refuelCar() {
+		let requiredFuel = this.car.requiredFuel();
+		let randomNumber = Math.random();
+		let costPerGallon = 2 + randomNumber;
+		let costOfGas = requiredFuel * costPerGallon;
+		this.wealth -= costOfGas;
+    this.car.refuel();
 	}
 }
