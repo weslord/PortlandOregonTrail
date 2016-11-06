@@ -61,9 +61,10 @@ class Game {
   }
 
 	goWest() {
-    for person in this.people {
-      person.becomeHungrier()
-    }
+		// console.log(this)
+    // for person in this.people {
+    //   person.becomeHungrier()
+    // }
 
     if (this.currentCityIndex < cities.length) {
       this.currentCityIndex++;
@@ -90,11 +91,11 @@ class Game {
 	}
 
   feedPeople(restaurant) {
-    for person in this.people {
-      person.feed()
-    }
-    
-    this.wealth -= restaurant.cost
+    // for person in this.people {
+    //   person.feed()
+    // }
+		//
+    // this.wealth -= restaurant.cost
   }
 
 	selectRestaurant(restaurant) {
