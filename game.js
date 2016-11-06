@@ -114,4 +114,7 @@ class Game {
 		this.changeMoney(restaurant.price);
 		this.changeCool(restaurant.cool);
 	}
+  isGameOver() {
+    return this.wealth <= 0 || this.cool <= -100 || this.people.length <= 0;
+  }
 }

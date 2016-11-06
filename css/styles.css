@@ -126,3 +126,28 @@ body {
   width:25%;
   background-color:white;
 }
+/* #gameOver { */
+/*   font-family: 'c64'; */
+/*   color: white; */
+/*   font-size: 50px; */
+/*   position: fixed; */
+/*   top: 50%; */
+/*   left: 50%; */
+/*   margin-top: -50px; */
+/*   margin-left: -100px; */
+/* } */
+.gameOver {
+  font-family: 'c64';
+  color: white;
+  font-size: 50px;
+  position: fixed;
+  top: 30%;
+  left: 40%;
+  width: 50%;
+  margin-top: -50px;
+  margin-left: -100px;
+}
+
+#playAgain {
+
+}

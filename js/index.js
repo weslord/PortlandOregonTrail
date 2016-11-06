@@ -34,6 +34,7 @@ $(document).ready(function() {
   }
 
   function countdownMilage(){
+    checkGameOver();
     var milesInTurn = 0;
     setRollingImage();
     leftCity();
@@ -63,6 +64,24 @@ $(document).ready(function() {
     var event = game.eventsManager.getRandomEvent();
     game.updateStatesEvent(event);
   }
+
+  function checkGameOver() {
+    if (game.isGameOver()) {
+      $("body").fadeOut(3000, function () {
+        $("body").empty();
+        $('<div class="gameOver">You died of terminal uncoolness. <p id="playAgain" class="action">Play Again</p></div>').appendTo("html");
+        // $('<p class="playAgain" class="action">Play Again</p>').appendTo("html");
+        $('#playAgain').on('click', function() {
+          location.reload();
+        });
+      });
+    }
+  }
+  $('#playAgain').on('click', function() {
+    console.log('playagain');
+    location.reload();
+  });
+
   function initGame(){
     $('#milesToNext').hide();
     setCityImage(cities[game.currentCityIndex])
