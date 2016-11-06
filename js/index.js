@@ -51,8 +51,8 @@ $(document).ready(function() {
 
   function setCityImage(city){
     $('#backgroundImage').hide();
-    $('#cityImage').show();
     $('#cityImage').attr("src", city.img);
+    $('#cityImage').show();
   }
 
   function setRollingImage(){
