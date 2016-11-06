@@ -7,7 +7,9 @@ class Game {
     
     this.cool = 0
     this.wealth = 0
-    for (var person in this.people) {
+
+    for (var i = 0; i < people.length; i++) {
+      let person = people[i]
       this.cool += person.cool
       this.wealth += person.wealth
     }
