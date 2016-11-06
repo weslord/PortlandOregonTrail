@@ -26,7 +26,7 @@ $(document).ready(function() {
     $('#coolPointsNum').text(Math.floor(num));
   }
   function setMoney(num) {
-    $('#moneyLeftNum').text(Math.floor(num));
+    $('#moneyLeftNum').text(Math.floor(num * 100)/100);
   }
   function setGas(num) {
     $('#gasRemainingNum').text(Math.floor(num*10)/10);
@@ -225,7 +225,12 @@ $(document).ready(function() {
   })
 
   $('#whateverCharacters').on('click', function(){
-    console.log('whateverCharacters')
+    game.setUpPeople([
+      new Person('Chet', 'Licoln', -10, 220, 28, 4),
+			new Person('Chad', 'Fort Worth', 10, 100, 18, 5),
+			new Person('Jess', 'Davenport', 100, 50, 10, 6),
+			new Person('Jo', 'Omaha', 10, 50, 5, 7)
+    ])
     $('#characterSelection').hide();
     $('#gameplay').show();
   })
