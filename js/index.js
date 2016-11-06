@@ -33,7 +33,7 @@ $(document).ready(function() {
     var timeInterval = setInterval(function(){
       setRollingImage();
       distanceRemaining--;
-      $('#milesToGo').text(distanceRemaining);
+      $('#milesToGoNum').text(distanceRemaining);
       if (distanceRemaining < cities[game.currentCityIndex + 1].distanceRemaining){
         clearInterval(timeInterval)
         goWest();
