@@ -106,12 +106,14 @@ $(document).ready(function() {
   updateStats();
   $('#cityImage').hide();
   $('#restaurantOptions').hide();
-  $('#buyinGasInfo').hide();
+  $('#buyingGasInfo').hide();
+  // $('#gasOptionsContainer').hide();
 
   //buttons
   $('#goWest').on('click', countdownMilage);
   $('#getFood').on('click', getFood);
   $('#buyGas').on('click', buyGas);
+  $('#forgetIt').on('click', forgetIt);
 
   function getFood(){
     $('#actions').hide();
@@ -141,21 +143,17 @@ $(document).ready(function() {
     $('#gasPrice').text(costPerGallonRounded);
     $('#gasTotalGallons').text(amountToFillRounded);
     $('#gasTotalCost').text(totalCostRounded);
-    $('<p>Pay Cash</p>').addClass('action').appendTo('#gasOptionsContainer').on('click', function(){
+    $('#payNow').on('click', function(){
       game.refuelCar(gasStats.totalCost);
       $('#buyingGasInfo').hide();
       $('#actions').show();
       $('gasOptionsContainer').empty();
-      // var wealthRounded = Math.round(game.wealth * 100) / 100;
       $('#moneyLeft').text(Math.round(game.wealth * 100) / 100);
-      updateStats();
     });
-    // $('<p>Pay Cool</p>').addClass('action').appendTo('#gasOptionsContainer').on('click', function() {});
-    // $('<p>Forget it</p>').addClass('action').appendTo('#gasOptionsContainer').on('click', function() {
-    //   $('#gasOptionsContainer').hide();
-    //   $('#actions').show();
-    // });
-    updateStats();
+  }
+  function forgetIt() {
+    $('#buyingGasInfo').hide();
+    $('#actions').show();
   }
 
   var scrollBackground;
