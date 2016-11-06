@@ -1,7 +1,6 @@
 $(document).ready(function() {
-  var imageInterval = 0;
-
-  var game = new Game(); 
+  var imageInterval = $( window ).width();
+  var game = new Game();
   const TOTALMILES = 1893;
 
   var currentCity;
@@ -16,7 +15,7 @@ $(document).ready(function() {
     $('#milesTravelledNum').text(num);
   }
   function setMilesToGo(num) {
-    $('#milesToGoNum').text(num);   
+    $('#milesToGoNum').text(num);
   }
   function setCoolPoints(num) {
     $('#coolPointsNum').text(num);
@@ -38,18 +37,28 @@ $(document).ready(function() {
     setMoney(game.wealth);
     setGas(game.getCar().currentTank);
 
-    setCityImage(cities[0]);
+    // setCityImage(cities[0]);
+    $('#cityImage').hide();
   }
 
   function countdownMilage(){
+    var milesInTurn = 0;
+    setRollingImage();
     var timeInterval = setInterval(function(){
-      setRollingImage();
       distanceRemaining--;
-      $('#milesToGo').text(distanceRemaining);
+      milesInTurn++;
+      $('#milesToGoNum').text(distanceRemaining);
       if (distanceRemaining < cities[game.currentCityIndex + 1].distanceRemaining){
         clearInterval(timeInterval)
         goWest();
       }
+      if (milesInTurn > 49){
+        clearInterval(timeInterval);
+        updateStats();
+        stopScrollingBackground();
+
+      }
+
     }, 50)
   }
   function updateStats() {
@@ -67,26 +76,39 @@ $(document).ready(function() {
   function goWest() {
     game.goWest();
     updateStats();
-    setCityImage(cities[game.currentCityIndex]);
+    stopScrollingBackground();
+    // setCityImage(cities[game.currentCityIndex]);
   }
 
   function setCityImage(city){
+    stopScrollingBackground();
     $('#backgroundImage').hide();
     $('#cityImage').attr("src", city.img);
-    $('#cityImage').show();
+    $('#cityImage').fadeIn(1000, null);
   }
 
   function setRollingImage(){
+    startScrollingBackground();
     $('#cityImage').hide();
-    $('#backgroundImage').show();
+    $('#backgroundImage').fadeIn(1000, null);
   }
 
   setUpStart();
 
   $('#goWest').on('click', countdownMilage);
 
-  setInterval(function(){
-      imageInterval+=1;
-      $('#backgroundImage').css('background-position', imageInterval + 'px 0');
-  }, 20);
+  var scrollBackground;
+
+  function stopScrollingBackground(){
+      clearInterval(scrollBackground);
+  }
+
+  function startScrollingBackground(){
+    scrollBackground = setInterval(function(){
+        imageInterval+=1.6;
+        $('#backgroundImage').css('background-position', imageInterval + 'px 0');
+    }, 20);
+  }
+
+
 });

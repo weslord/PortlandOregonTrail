@@ -1,6 +1,6 @@
 @font-face {
   font-family: "C64";
-  src: url("./Commodore-64-v6.3.TTF"); 
+  src: url("./Commodore-64-v6.3.TTF");
 }
 
 body {
@@ -24,6 +24,7 @@ body {
   background-image: url('../images/rotatingbackground.jpg');
   background-size: cover;
   background-repeat: repeat-x;
+  background-position: right;
   overflow: hidden;
   height: 50vh;
   width: 100vw;
