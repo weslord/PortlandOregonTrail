@@ -30,7 +30,7 @@ class Person {
   die() {
     this.isDead = true
 
-		$('#passenger' + this.id + ' .passengerName').addClass('deadPassenger').removeClass('passenger')
+		$('#passenger' + this.id).addClass('deadPassenger').removeClass('passenger')
 		notification("" + this.name + " has died.")
   }
 
