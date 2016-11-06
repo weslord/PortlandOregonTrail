@@ -17,6 +17,15 @@ $(document).ready(function() {
   function setMilesToGo(num) {
     $('#milesToGoNum').text(num);
   }
+  function setCoolPoints(num) {
+    $('#coolPointsNum').text(num);
+  }
+  function setMoney(num) {
+    $('#moneyNum').text(num);
+  }
+  function setGas(num) {
+    $('#gasRemainingNum').text(num);
+  }
   function setUpStart() {
     var mileage = game.getCar().mileage;
     var cityName = game.currentCity.name;
@@ -24,6 +33,9 @@ $(document).ready(function() {
     setCityName(cityName);
     setMilesTravelled(mileage);
     setMilesToGo(game.TOTALMILES - mileage);
+    setCoolPoints(game.cool);
+    setMoney(game.wealth);
+    setGas(game.getCar().currentTank);
 
     // setCityImage(cities[0]);
     $('#cityImage').hide();
@@ -56,6 +68,9 @@ $(document).ready(function() {
     setCityName(cityName);
     setMilesTravelled(mileage);
     setMilesToGo(game.TOTALMILES - mileage);
+    setCoolPoints(game.cool);
+    setMoney(game.wealth);
+    setGas(game.getCar().currentTank);
   }
 
   function goWest() {

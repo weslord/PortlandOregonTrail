@@ -48,7 +48,7 @@ class Game {
     this.car.travel(this.distanceFromLastCity());
 		var event = this.eventsManager.getRandomEvent();
     this.changeCool(event.cool);
-    this.changeMoney(event.wealth);
+    this.changeMoney(event.cost);
   }
 
 	refuelCar() {
