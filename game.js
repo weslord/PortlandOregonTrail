@@ -28,7 +28,7 @@ class Game {
 					<div class="hungerContainer"><div class="hungerBar"></div></div>
 				`)
 				.addClass('passenger')
-				.attr('id', `passenger${person}`)
+				.attr('id', `passenger${peep.id}`)
 				.appendTo('#passengers')
 		}
 	}
