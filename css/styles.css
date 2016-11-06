@@ -49,6 +49,14 @@ body {
   height: 12vh;
 }
 
+#notification {
+  float:left;
+  width:90%;
+  margin:1em 5%;
+  text-align:center;
+  border:2px dashed red;
+}
+
 .action {
   text-decoration: underline;
   cursor: pointer;
