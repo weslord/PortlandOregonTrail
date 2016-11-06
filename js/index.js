@@ -8,6 +8,8 @@ $(document).ready(function() {
   var mileage; //will be on instance of car
   var distanceRemaining = TOTALMILES;
 
+  var selectedCharacters = [];
+
   function setCityName(name) {
     $('#currentCityName').text(name);
   }
@@ -24,7 +26,7 @@ $(document).ready(function() {
     $('#coolPointsNum').text(Math.floor(num));
   }
   function setMoney(num) {
-    $('#moneyLeftNum').text(Math.floor(num));
+    $('#moneyLeftNum').text(Math.floor(num * 100)/100);
   }
   function setGas(num) {
     $('#gasRemainingNum').text(Math.floor(num*10)/10);
@@ -63,6 +65,7 @@ $(document).ready(function() {
     }, 50)
     var event = game.eventsManager.getRandomEvent();
     game.updateStatesEvent(event);
+    game.starvePeople();
   }
 
   function checkGameOver() {
@@ -83,17 +86,31 @@ $(document).ready(function() {
   });
 
   function initGame(){
-    $('#milesToNext').hide();
+    // splash screen
+    $('#gameplay').hide();
+    $('#characterSelection').hide();
+
+    $('#intro').on('click', function () {
+      $('#intro').hide();
+      $('#characterSelection').show();
+    })
+
+    $('#onTheRoad').hide();
+    $('#nextCity').text(cities[game.currentCityIndex+1].name);
     setCityImage(cities[game.currentCityIndex])
     setMilesToGo(TOTALMILES);
+    setMilesToNext(57);
     setMilesTravelled(0);
   }
 
   function atCity() {
     $('#buyGas').show();
     $('#getFood').show();
+    $('#onTheRoad').hide();
     $('#currentCity').show();
-    $('#milesToNext').hide();
+    var nextCityDist = cities[game.currentCityIndex + 2].distanceRemaining;
+    setMilesToNext(distanceRemaining - nextCityDist + 1);
+    $('#nextCity').text(cities[game.currentCityIndex+2].name);
     setTimeout(function(){
       setCityImage(cities[game.currentCityIndex])
     }, 1000)
@@ -102,6 +119,7 @@ $(document).ready(function() {
     $('#buyGas').hide();
     $('#getFood').hide();
     $('#currentCity').hide();
+    $('#onTheRoad').show();
     $('#milesToNext').show();
   }
 
@@ -156,6 +174,7 @@ $(document).ready(function() {
         .appendTo("#restaurantOptionsContainer")
         .on('click', function(){
           game.selectRestaurant(restaurant);
+          game.feedPeople(restaurant);
           setMoney(game.wealth);
           setCoolPoints(game.cool);
           $('#restaurantOptionsContainer').empty();
@@ -193,11 +212,56 @@ $(document).ready(function() {
     clearInterval(scrollBackground);
   }
 
+  function setupCharacterScreen(){
+    game.characterManager.characters.forEach(function(character){
+      $("<tr/>")
+      .append(`
+        <td>${character.name}</td>
+        <td>${character.hometown}</td>
+        <td>${character.wealth}</td>
+        <td>${character.cool}</td>
+        <td>${character.hungerRate}</td>
+      `)
+      .addClass('action')
+      .addClass('characterSelectionIndividual')
+      .appendTo("#characterSelectionContainer")
+      .on('click', function(){
+        if(!selectedCharacters.includes(character)){
+          selectedCharacters.push(character);
+          $(this).addClass('characterSelected')
+        }else{
+          selectedCharacters = selectedCharacters.filter(e => e !== character)
+          $(this).removeClass('characterSelected')
+        }
+      });
+    });
+  };
+
+  $('#acceptCharacters').on('click', function(){
+    game.setUpPeople(selectedCharacters)
+    $('#characterSelection').hide();
+    $('#gameplay').show();
+  })
+
+  $('#whateverCharacters').on('click', function(){
+    game.setUpPeople([
+      new Person('Chet', 'Licoln', -10, 220, 28, 4),
+			new Person('Chad', 'Fort Worth', 10, 100, 18, 5),
+			new Person('Jess', 'Davenport', 100, 50, 10, 6),
+			new Person('Jo', 'Omaha', 10, 50, 5, 7)
+    ])
+    $('#characterSelection').hide();
+    $('#gameplay').show();
+  })
+
+  setupCharacterScreen();
+
   function startScrollingBackground(){
     scrollBackground = setInterval(function(){
       imageInterval+=1.6;
       $('#backgroundImage').css('background-position', imageInterval + 'px 0');
     }, 20);
   }
+
 
 });
