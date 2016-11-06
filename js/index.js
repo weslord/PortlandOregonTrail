@@ -1,6 +1,12 @@
 $(document).ready(function() {
   var imageInterval = $( window ).width();
-  var game = new Game();
+  var people = [
+    new Person("Bill", 100, 300, 20, 0),
+    new Person("Bob", 300, 100, 30, 1),
+    new Person("Jack", 400, 250, 40, 2),
+    new Person("Jill", 240, 3000, 50, 3)
+  ]
+  var game = new Game(people);
   const TOTALMILES = 1893;
 
   var currentCity;
@@ -62,7 +68,9 @@ $(document).ready(function() {
     }, 50)
     var event = game.eventsManager.getRandomEvent();
     game.updateStatesEvent(event);
+    game.starvePeople();
   }
+
   function initGame(){
     $('#onTheRoad').hide();
     $('#nextCity').text(cities[game.currentCityIndex+1].name);
@@ -106,7 +114,7 @@ $(document).ready(function() {
     updateStats();
     stopScrollingBackground();
   }
-
+  
   function setCityImage(city){
     stopScrollingBackground();
     $('#backgroundImage').hide();
