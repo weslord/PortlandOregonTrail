@@ -72,6 +72,13 @@ $(document).ready(function() {
   }
 
   function initGame(){
+    // splash screen
+    $('#gameplay').hide();
+    $('#intro').on('click', function () {
+      $('#intro').hide();
+      $('#characterSelection').show();
+    })
+    
     $('#onTheRoad').hide();
     $('#nextCity').text(cities[game.currentCityIndex+1].name);
     setCityImage(cities[game.currentCityIndex])
