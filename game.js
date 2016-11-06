@@ -4,6 +4,7 @@ class Game {
 		this.car = new Car()
 		this.cool = 100.0
 		this.wealth = 1000.0
+		this.restaurants = new RestaurantManager()
 		this.people = [
 			new Person("Bill"),
 			new Person("Bob"),
@@ -91,4 +92,9 @@ class Game {
     
     this.wealth -= hungerPointsRejuvinated * restaurant.costPerPointOfHunger
   }
+
+	selectRestaurant(restaurant) {
+		this.changeMoney(restaurant.price);
+		this.changeCool(restaurant.cool);
+	}
 }
