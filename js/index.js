@@ -90,7 +90,7 @@ $(document).ready(function() {
     $('#gameplay').hide();
     $('#characterSelection').hide();
 
-    $('#introButtons').on('click', function () {
+    $('.introButtons').on('click', function () {
       console.log('click');
       $('#intro').hide();
       $('#characterSelection').show();
