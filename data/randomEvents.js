@@ -18,7 +18,6 @@ class EventsManager {
 		  new Event("A Nickelback song was found on your playlist.", 0, -100),
 		  new Event("A Nickelback song was found on your playlist.", 0, -100),
 		  new Event("A Nickelback song was found on your playlist.", 0, -100),
-		  new Event("A Nickelback song was found on your playlist.", 0, -100),
 		  new Event("Trust fund invested in Silicon Valley app failure.", -150, 25),
 		  new Event("Bought an iPhone instead of an Android. No money for groceries.", -1000, 1000),
 		  new Event("Used parent's credit card to pay off maintenance fees.", 200, -200),
@@ -37,9 +36,9 @@ class EventsManager {
 	}
 
 	getRandomEvent() {
-    let ran = Math.random();
+    // let ran = Math.random();
     // console.log(ran);
-    if (ran > 0.5) { return; }
+    // if (ran > 0.3) { return; }
       let randomNumber = Math.floor(Math.random() * this.events.length);
       return this.events[randomNumber]
 	}

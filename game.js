@@ -43,6 +43,11 @@ class Game {
     if (event != undefined) {
       if (event.description.includes('Nickelback')) {
         console.log("NICKELBACK");
+        var stopItPlease = function() {
+          nickelback.pause();
+          nickelback.currentTime = 0;
+        }
+        setTimeout(stopItPlease, 12000);
         var nickelback = new Audio('audio/nickelback.mp3');
         nickelback.play();
       }
