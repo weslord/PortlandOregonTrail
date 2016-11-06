@@ -27,7 +27,7 @@ $(document).ready(function() {
     $('#moneyLeftNum').text(num);
   }
   function setGas(num) {
-    $('#gasRemainingNum').text(num);
+    $('#gasRemainingNum').text(Math.floor(num*10)/10);
   }
   function getEvent() {
     return game.eventsManger.getRandomEvent();
@@ -90,8 +90,29 @@ $(document).ready(function() {
 
   updateStats();
   $('#cityImage').hide();
+  $('#restaurantOptions').hide();
 
   $('#goWest').on('click', countdownMilage);
+  $('#getFood').on('click', getFood);
+
+  function getFood(){
+    $('#actions').hide();
+    $('#restaurantOptions').show();
+    game.restaurants.getRandomRestaurants().forEach(function(restaurant){
+      $("<div />")
+        .html(restaurant.name)
+        .addClass('action')
+        .appendTo("#restaurantOptionsContainer")
+        .on('click', function(){
+          game.selectRestaurant(restaurant);
+          setMoney(game.wealth);
+          setCoolPoints(game.cool);
+          $('#restaurantOptionsContainer').empty();
+          $('#restaurantOptions').hide();
+          $('#actions').show();
+        });
+    })
+  }
 
   var scrollBackground;
 
