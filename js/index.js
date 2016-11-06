@@ -36,6 +36,8 @@ $(document).ready(function() {
   function countdownMilage(){
     var milesInTurn = 0;
     setRollingImage();
+    leftCity();
+    $('#goWest').hide();
     var timeInterval = setInterval(function(){
       var nextCityDist = cities[game.currentCityIndex + 1].distanceRemaining;
       distanceRemaining--;
@@ -43,11 +45,14 @@ $(document).ready(function() {
       setMilesToGo(distanceRemaining);
       setMilesToNext(distanceRemaining - nextCityDist + 1);
       setMilesTravelled(TOTALMILES - distanceRemaining);
-      if (distanceRemaining < nextCityDist){
+      if (distanceRemaining < nextCityDist){ //arrived at city
+        $('#goWest').show();
+        atCity();
         clearInterval(timeInterval)
         goWest();
       }
       if (milesInTurn > 49){
+        $('#goWest').show();
         clearInterval(timeInterval);
         updateStats();
         stopScrollingBackground();
@@ -55,6 +60,14 @@ $(document).ready(function() {
     }, 50)
     var event = game.eventsManager.getRandomEvent();
     game.updateStatesEvent(event);
+  }
+  function atCity() {
+    $('#buyGas').show();
+    $('#getFood').show();
+  }
+  function leftCity() {
+    $('#buyGas').hide();
+    $('#getFood').hide();
   }
   function updateStats() {
     var mileage = game.getCar().mileage;
@@ -92,6 +105,7 @@ $(document).ready(function() {
   $('#cityImage').hide();
   $('#restaurantOptions').hide();
 
+  //buttons
   $('#goWest').on('click', countdownMilage);
   $('#getFood').on('click', getFood);
 
@@ -113,17 +127,21 @@ $(document).ready(function() {
         });
     })
   }
+  $('#buyGas').on('click', function() {
+    game.refuelCar()
+    updateStats();
+  });
 
   var scrollBackground;
 
   function stopScrollingBackground(){
-      clearInterval(scrollBackground);
+    clearInterval(scrollBackground);
   }
 
   function startScrollingBackground(){
     scrollBackground = setInterval(function(){
-        imageInterval+=1.6;
-        $('#backgroundImage').css('background-position', imageInterval + 'px 0');
+      imageInterval+=1.6;
+      $('#backgroundImage').css('background-position', imageInterval + 'px 0');
     }, 20);
   }
 

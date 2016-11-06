@@ -1,6 +1,6 @@
 @font-face {
   font-family: "C64";
-  src: url("./Commodore-64-v6.3.TTF");
+  src: url("./C64_Pro_Mono-STYLE.ttf");
 }
 
 body {
@@ -8,14 +8,26 @@ body {
   background-color: black;
   color:white;
   margin:0;
+  overflow-y:hidden;
+}
+
+#siteTitle {
+	text-align: center;
 }
 
 .uiContainer {
   float:left;
-  width:28%;
   margin-left:2%;
   padding:1em 0.5em;
   border:2px solid grey;
+}
+
+#currentStatus {
+	width: 42%;
+}
+
+#actions, #passengers {
+	width:20%;
 }
 
 .secTitle {
@@ -51,25 +63,32 @@ body {
 
 #notification {
   box-sizing: border-box;
-  display:none;
-  height:824px;
-  width:840px;
-  padding-left:500px;
+  /*display:none;*/
+  height:200%;
+  width:100%;
+  padding-left:490px;
   padding-right:150px;
-  padding-top:200px;
+  padding-top:160px;
+  background-color: rgba(0,0,0,0.5);
   background-image: url('../images/hipster-hand.png');
+  background-repeat: no-repeat;
   position:absolute;
-  top:50px;
-  left:150px;
+  top:100%;
+  left:0px;
 }
+#notification-text, #notification-cool, #notification-cost {
+  width:220px;
+}
+
 .loss {
   color: red;
 }
 
 .action {
-  text-decoration: underline;
   cursor: pointer;
-  margin-top:1em;
+  padding:0.5em;
+  margin-bottom: 0.5em;
+  border: 1px solid red;
 }
 
 .action span:hover {
