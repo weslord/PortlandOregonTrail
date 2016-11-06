@@ -26,7 +26,7 @@ class Game {
   currentCity() {
     return this.currentCity;
   }
-  
+
   currentCityIndex() {
     return this.currentCityIndex;
   }
@@ -39,16 +39,33 @@ class Game {
     return cities[this.currentCityIndex - 1].distanceRemaining - this.currentCity.distanceRemaining;
   }
 
+  updateStatesEvent(event) {
+    if (event != undefined) {
+      if (event.description.includes('Nickelback')) {
+        console.log("NICKELBACK");
+        var stopItPlease = function() {
+          nickelback.pause();
+          nickelback.currentTime = 0;
+        }
+        setTimeout(stopItPlease, 12000);
+        var nickelback = new Audio('audio/nickelback.mp3');
+        nickelback.play();
+      }
+      this.changeCool(event.cool);
+      this.changeMoney(event.cost);
+      notification(event.description, event.cool, event.cost);
+    }
+  }
 	goWest() {
     if (this.currentCityIndex < cities.length) {
       this.currentCityIndex++;
       this.currentCity = cities[this.currentCityIndex];
       this.car.mileage += this.distanceFromLastCity();
-    } 
+    }
     this.car.travel(this.distanceFromLastCity());
-		var event = this.eventsManager.getRandomEvent();
-    this.changeCool(event.cool);
-    this.changeMoney(event.cost);
+		// var event = this.eventsManager.getRandomEvent();
+    // this.updateStatesEvent(event);
+    return event;
   }
 
 	refuelCar() {
