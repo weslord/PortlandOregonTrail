@@ -126,7 +126,8 @@ class Game {
     for (var person in this.people) {
       this.people[person].feed()
     }
-    this.wealth -= restaurant.cost
+    this.wealth += restaurant.price
+		
   }
 
 	selectRestaurant(restaurant) {
