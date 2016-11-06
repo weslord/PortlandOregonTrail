@@ -1,6 +1,6 @@
 @font-face {
   font-family: "C64";
-  src: url("./Commodore-64-v6.3.TTF");
+  src: url("./C64_Pro_Mono-STYLE.ttf");
 }
 
 body {
@@ -8,6 +8,10 @@ body {
   background-color: black;
   color:white;
   margin:0;
+}
+
+#siteTitle {
+	text-align: center;
 }
 
 .uiContainer {
