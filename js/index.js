@@ -1,18 +1,14 @@
 $(document).ready(function() {
   var imageInterval = $( window ).width();
-  var people = [
-    new Person("Bill", 100, 300, 10, 0),
-    new Person("Bob", 300, 100, 15, 1),
-    new Person("Jack", 400, 250, 20, 2),
-    new Person("Jill", 240, 3000, 25, 3)
-  ]
-  var game = new Game(people);
+  var game = new Game();
   const TOTALMILES = 1893;
 
   var currentCity;
   var currentCityIndex;
   var mileage; //will be on instance of car
   var distanceRemaining = TOTALMILES;
+
+  var selectedCharacters = [];
 
   function setCityName(name) {
     $('#currentCityName').text(name);
@@ -114,7 +110,7 @@ $(document).ready(function() {
     updateStats();
     stopScrollingBackground();
   }
-  
+
   function setCityImage(city){
     stopScrollingBackground();
     $('#backgroundImage').hide();
@@ -188,11 +184,49 @@ $(document).ready(function() {
     clearInterval(scrollBackground);
   }
 
+  function setupCharacterScreen(){
+    game.characterManager.characters.forEach(function(character){
+      $("<tr/>")
+      .append(`
+        <td>${character.name}</td>
+        <td>${character.wealth}</td>
+        <td>${character.cool}</td>
+        <td>${character.hungerRate}</td>
+      `)
+      .addClass('action')
+      .addClass('characterSelectionIndividual')
+      .appendTo("#characterSelectionContainer")
+      .on('click', function(){
+        if(!selectedCharacters.includes(character)){
+          selectedCharacters.push(character);
+          $(this).addClass('characterSelected')
+        }else{
+          selectedCharacters = selectedCharacters.filter(e => e !== character)
+          $(this).removeClass('characterSelected')
+        }
+      });
+    });
+  };
+
+  $('#intro').hide();
+
+  $('#acceptCharacters').on('click', function(){
+    game.setUpPeople(selectedCharacters)
+    $('#characterSelection').hide();
+  })
+
+  $('#whateverCharacters').on('click', function(){
+    console.log('whateverCharacters')
+  })
+
+  setupCharacterScreen();
+
   function startScrollingBackground(){
     scrollBackground = setInterval(function(){
       imageInterval+=1.6;
       $('#backgroundImage').css('background-position', imageInterval + 'px 0');
     }, 20);
   }
+
 
 });

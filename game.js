@@ -1,24 +1,36 @@
 class Game {
-	constructor(people) {
+	constructor() {
     this.TOTALMILES = 1893;
+		this.characterManager = new CharacterManager()
     this.car = new Car()
     this.restaurants = new RestaurantManager()
-    this.people = people
-    
+    this.people = []
+
     this.cool = 0
     this.wealth = 0
-
-    for (var i = 0; i < people.length; i++) {
-      let person = people[i]
-      this.cool += person.cool
-      this.wealth += person.wealth
-    }
-
     this.currentCityIndex = 0;
     this.currentCity = cities[this.currentCityIndex];
     this.eventsManager = new EventsManager()
     this.restaurantManager = new RestaurantManager()
     this.atCity = true;
+	}
+
+	setUpPeople(people){
+		this.people = people;
+		for (var person in this.people) {
+			this.cool += this.people[person].cool
+			this.wealth += this.people[person].wealth
+			var peep = this.people[person];
+
+			$("<div />")
+				.append(`
+					<span class='passengerName'>${peep.name}</span>
+					<div class="hungerContainer"><div class="hungerBar"></div></div>
+				`)
+				.addClass('passenger')
+				.attr('id', `passenger${person}`)
+				.appendTo('#passengers')
+		}
 	}
 
   changeCool(num) {
@@ -76,16 +88,16 @@ class Game {
   getGasStats() {
     var costPerGallon = this.car.generateCostPerGallon();
     var requiredFuel = this.car.MAX_TANK_CAPACITY - this.car.currentTank;
-    var totalCost = requiredFuel * costPerGallon; 
+    var totalCost = requiredFuel * costPerGallon;
     console.log('requiredFuel ' + requiredFuel);
     console.log('total cost ' + totalCost);
-    
+
     return {
       costPerGallon: costPerGallon,
-      amountToFill: requiredFuel, 
+      amountToFill: requiredFuel,
       totalCost: totalCost
     }
-     
+
   }
 
 	refuelCar(totalCost) {
@@ -109,12 +121,11 @@ class Game {
       person.becomeHungerier()
     }
   }
-  
+
   feedPeople(restaurant) {
     for (var person in this.people) {
       person.feed()
     }
-		
     this.wealth -= restaurant.cost
   }
 
