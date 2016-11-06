@@ -1,17 +1,26 @@
 class Game {
-	constructor() {
+	constructor(people) {
     this.TOTALMILES = 1893;
-		this.car = new Car()
-		this.cool = 100.0
-		this.wealth = 1000.0
-		this.restaurants = new RestaurantManager()
-		this.people = []
 		this.characterManager = new CharacterManager()
+    this.car = new Car()
+    this.restaurants = new RestaurantManager()
+    this.people = []
+
+    this.cool = 0
+    this.wealth = 0
     this.currentCityIndex = 0;
     this.currentCity = cities[this.currentCityIndex];
-		this.eventsManager = new EventsManager()
+    this.eventsManager = new EventsManager()
     this.restaurantManager = new RestaurantManager()
     this.atCity = true;
+	}
+
+	setUpPeople(people){
+		this.people = people;
+		for (var person in this.people) {
+			this.cool += person.cool
+			this.wealth += person.wealth
+		}
 	}
 
   changeCool(num) {
@@ -57,10 +66,6 @@ class Game {
   }
 
 	goWest() {
-    // for (person in this.people) {
-    //   person.becomeHungrier()
-    // }
-
     if (this.currentCityIndex < cities.length) {
       this.currentCityIndex++;
       this.currentCity = cities[this.currentCityIndex];
@@ -73,16 +78,16 @@ class Game {
   getGasStats() {
     var costPerGallon = this.car.generateCostPerGallon();
     var requiredFuel = this.car.MAX_TANK_CAPACITY - this.car.currentTank;
-    var totalCost = requiredFuel * costPerGallon; 
+    var totalCost = requiredFuel * costPerGallon;
     console.log('requiredFuel ' + requiredFuel);
     console.log('total cost ' + totalCost);
-    
+
     return {
       costPerGallon: costPerGallon,
-      amountToFill: requiredFuel, 
+      amountToFill: requiredFuel,
       totalCost: totalCost
     }
-     
+
   }
 
 	refuelCar(totalCost) {
@@ -98,11 +103,19 @@ class Game {
     }
 	}
 
-  feedPeople(restaurant) {
-  //   for (person in this.people) {
-  //     person.feed()
-  //   }
+  starvePeople() {
+    let people = this.people
 
+    for (var i = 0; i < people.length; i++) {
+      let person = people[i]
+      person.becomeHungerier()
+    }
+  }
+
+  feedPeople(restaurant) {
+    for (var person in this.people) {
+      person.feed()
+    }
     this.wealth -= restaurant.cost
   }
 
