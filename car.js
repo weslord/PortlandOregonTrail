@@ -17,6 +17,11 @@ class Car {
 	refuel() {
 		this.currentTank = this.MAX_TANK_CAPACITY
 	}
+
+  generateCostPerGallon() {
+		let randomNumber = Math.random();
+		return 2 + randomNumber;
+  }
   // mileage() {
   //   return this.mileage;
   // }
