@@ -41,6 +41,11 @@ class Game {
 
   updateStatesEvent(event) {
     if (event != undefined) {
+      if (event.description.includes('Nickelback')) {
+        console.log("NICKELBACK");
+        var nickelback = new Audio('audio/nickelback.mp3');
+        nickelback.play();
+      }
       this.changeCool(event.cool);
       this.changeMoney(event.cost);
       notification(event.description, event.cool, event.cost);
