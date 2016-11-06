@@ -13,6 +13,7 @@ class Game {
     this.currentCityIndex = 0;
     this.currentCity = cities[this.currentCityIndex];
 		this.eventsManager = new EventsManager()
+    this.restaurantManager = new RestaurantManager()
 	}
 
   changeCool(num) {
@@ -56,7 +57,12 @@ class Game {
       notification(event.description, event.cool, event.cost);
     }
   }
+
 	goWest() {
+    for person in this.people {
+      person.becomeHungrier()
+    }
+
     if (this.currentCityIndex < cities.length) {
       this.currentCityIndex++;
       this.currentCity = cities[this.currentCityIndex];
@@ -76,4 +82,13 @@ class Game {
 		this.wealth -= costOfGas;
     this.car.refuel();
 	}
+
+  feedPeople(restaurant) {
+    var hungerPointsRejuvinated = 0
+    for person in this.people {
+      hungerPointsRejuvinated += person.feed()
+    }
+    
+    this.wealth -= hungerPointsRejuvinated * restaurant.costPerPointOfHunger
+  }
 }
