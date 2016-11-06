@@ -17,3 +17,18 @@ class Person {
 		return oldHunger
 	}
 }
+
+class CharacterManager {
+	constructor(){
+		this.characters = [
+			new Person('Dave'),
+			new Person('Rob'),
+			new Person('Sarah'),
+			new Person('Nicole'),
+			new Person('Chet'),
+			new Person('Chad'),
+			new Person('Jess'),
+			new Person('Jo')
+		]
+	}
+}

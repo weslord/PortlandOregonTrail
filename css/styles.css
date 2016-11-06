@@ -96,7 +96,7 @@ body {
 }
 
 .passenger {
-  
+
 }
 
 .hungerContainer {
@@ -104,7 +104,7 @@ body {
   padding: 0;
   border:2px solid brown;
   height:1em;
-  
+
 }
 .hungerBar {
   padding: 0;
@@ -112,4 +112,39 @@ body {
   height:100%;
   width:25%;
   background-color:white;
+}
+
+#characterSelection {
+  height: 100vh;
+  width: 100vw;
+  z-index: 99;
+}
+
+.adjacent {
+  width: 40vw
+}
+
+.characterUIContainer {
+  margin-left:2%;
+  margin-right: 2%;
+  padding:1em 0.5em;
+  border:2px solid grey;
+}
+
+.characterSelectionIndividual {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.characterSelected {
+  background-color: #333333;
+}
+
+#characterSelectionButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 30px;
+  text-align: center;
 }

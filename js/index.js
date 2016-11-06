@@ -8,6 +8,8 @@ $(document).ready(function() {
   var mileage; //will be on instance of car
   var distanceRemaining = TOTALMILES;
 
+  var selectedCharacters = [];
+
   function setCityName(name) {
     $('#currentCityName').text(name);
   }
@@ -152,11 +154,47 @@ $(document).ready(function() {
     clearInterval(scrollBackground);
   }
 
+  function setupCharacterScreen(){
+    game.characterManager.characters.forEach(function(character){
+      $("<div/>")
+      .append(`
+        <span>${character.name}</span>
+        <span>${character.money}</span>
+        <span>${character.cool}</span>
+        <span>${character.hungerRate}</span>
+      `)
+      .addClass('action')
+      .addClass('characterSelectionIndividual')
+      .appendTo("#characterSelectionContainer")
+      .on('click', function(){
+        if(!selectedCharacters.includes(character)){
+          selectedCharacters.push(character);
+          $(this).addClass('characterSelected')
+        }else{
+          selectedCharacters = selectedCharacters.filter(e => e !== character)
+          $(this).removeClass('characterSelected')
+        }
+      });
+    });
+  };
+
+  $('#acceptCharacters').on('click', function(){
+    game.people = selectedCharacters;
+    $('#characterSelection').hide();
+  })
+
+  $('#whateverCharacters').on('click', function(){
+    console.log('whateverCharacters')
+  })
+
+  setupCharacterScreen();
+
   function startScrollingBackground(){
     scrollBackground = setInterval(function(){
       imageInterval+=1.6;
       $('#backgroundImage').css('background-position', imageInterval + 'px 0');
     }, 20);
   }
+
 
 });

@@ -5,12 +5,8 @@ class Game {
 		this.cool = 100.0
 		this.wealth = 1000.0
 		this.restaurants = new RestaurantManager()
-		this.people = [
-			new Person("Bill"),
-			new Person("Bob"),
-			new Person("Jack"),
-			new Person("Jill")
-		]
+		this.people = []
+		this.characterManager = new CharacterManager()
     this.currentCityIndex = 0;
     this.currentCity = cities[this.currentCityIndex];
 		this.eventsManager = new EventsManager()
@@ -92,7 +88,7 @@ class Game {
   //   for (person in this.people) {
   //     person.feed()
   //   }
-		
+
     this.wealth -= restaurant.cost
   }
 
