@@ -16,10 +16,17 @@ body {
 
 .uiContainer {
   float:left;
-  width:28%;
   margin-left:2%;
   padding:1em 0.5em;
   border:2px solid grey;
+}
+
+#currentStatus {
+	width: 42%;
+}
+
+#actions, #passengers {
+	width:20%;
 }
 
 .secTitle {
@@ -71,9 +78,10 @@ body {
 }
 
 .action {
-  text-decoration: underline;
   cursor: pointer;
-  margin-top:1em;
+  padding:0.5em;
+  margin-bottom: 0.5em;
+  border: 1px solid red;
 }
 
 .action span:hover {
