@@ -85,12 +85,11 @@ class Game {
 	}
 
   feedPeople(restaurant) {
-    var hungerPointsRejuvinated = 0
     for person in this.people {
-      hungerPointsRejuvinated += person.feed()
+      person.feed()
     }
     
-    this.wealth -= hungerPointsRejuvinated * restaurant.costPerPointOfHunger
+    this.wealth -= restaurant.cost
   }
 
 	selectRestaurant(restaurant) {
