@@ -35,7 +35,7 @@ $(document).ready(function() {
     var timeInterval = setInterval(function(){
       distanceRemaining--;
       milesInTurn++;
-      $('#milesToGo').text(distanceRemaining);
+      $('#milesToGoNum').text(distanceRemaining);
       if (distanceRemaining < cities[game.currentCityIndex + 1].distanceRemaining){
         clearInterval(timeInterval)
         goWest();

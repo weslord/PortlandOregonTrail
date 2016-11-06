@@ -14,24 +14,39 @@
     <div id='backgroundImage'>
       <img id='elCamino' src='./images/el-camino.png'/>
     </div>
-    <img id='cityImage'/>
-    <div class='description' city-data=''>
-      <div class='currentStatus'>
-        <p class='currentCity'>Current City:
+
+    <img id='cityImage'/> <!-- can we move this into the backgroundImage div? -->
+
+    <div id='description' city-data=''>
+
+      <div class='uiContainer' id='actions'>
+        <span class='secTitle'>Actions:</span><br>
+        <div class='action' id='goWest'>Go West</div>
+        <div class='action' id='buyGas'>Buy Gas</div>
+        <div class='action' id='getFood'>Get Food</div>
+
+      </div>
+
+      <div class='uiContainer' id='currentStatus'>
+        <span class='secTitle'>Status:</span>
+        <p id='currentCity'>Current City:
           <span id='currentCityName'></span>
         </p>
         <p id='milesTravelled'>Miles Travelled:
-          <span id='milesTravelledNum'><span>
+          <span id='milesTravelledNum'></span>
         </p>
         <p id='milesToGo'>Miles To Go:
-          <span id='milesToGoNum'><span>
+          <span id='milesToGoNum'></span>
         </p>
       </div>
-      <div class='choices'>
-        <p> <span id="goWest">GO WEST</span></p>
+
+      <div class='uiContainer' id='passengers'>
+        <span class='secTitle'>Passengers:</span>
       </div>
+
     </div>
-    <script src="js/jquery-3.1.1.js"></script>
+
+    <script src='js/jquery-3.1.1.js'></script>
     <script src='data/cities.js'></script>
     <script src='data/randomEvents.js'></script>
     <script src='car.js'></script>
