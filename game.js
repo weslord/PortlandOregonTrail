@@ -14,6 +14,7 @@ class Game {
     this.currentCityIndex = 0;
     this.currentCity = cities[this.currentCityIndex];
 		this.eventsManager = new EventsManager()
+    this.atCity = true;
 	}
 
   changeCool(num) {
@@ -74,8 +75,12 @@ class Game {
 		let randomNumber = Math.random();
 		let costPerGallon = 2 + randomNumber;
 		let costOfGas = requiredFuel * costPerGallon;
-		this.wealth -= costOfGas;
-    this.car.refuel();
+    if (costOfGas <= this.wealth) {
+      this.wealth -= costOfGas;
+      this.car.refuel();
+    } else {
+      notification("Not enough money for gas!");
+    }
 	}
 
 	selectRestaurant(restaurant) {
