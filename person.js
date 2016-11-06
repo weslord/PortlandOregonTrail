@@ -17,7 +17,10 @@ class Person {
 		this.hunger += this.hungerRate + randomHunger
 
 		if (this.hunger >= 100) {
-			this.die()
+			if (!this.isDead) {
+				this.die()
+			}
+			
 			$('#passenger' + this.id + ' .hungerBar').css('width', '100%');
 		} else {
 			$('#passenger' + this.id + ' .hungerBar').css('width', "" + this.hunger + '%');
