@@ -50,21 +50,17 @@ body {
 }
 
 #notification {
-/*
   box-sizing: border-box;
   display:none;
   height:824px;
   width:840px;
   padding-left:500px;
+  padding-right:150px;
   padding-top:200px;
   background-image: url('../images/hipster-hand.png');
-*/
-  float:left;
-  width:90%;
-  margin:1em 5%;
-  text-align:center;
-  border:2px dashed red;
-
+  position:absolute;
+  top:50px;
+  left:150px;
 }
 
 .action {
