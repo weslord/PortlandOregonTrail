@@ -70,6 +70,8 @@ $(document).ready(function() {
   function initGame(){
     // splash screen
     $('#gameplay').hide();
+    $('#characterSelection').hide();
+
     $('#intro').on('click', function () {
       $('#intro').hide();
       $('#characterSelection').show();
@@ -215,15 +217,16 @@ $(document).ready(function() {
     });
   };
 
-  $('#intro').hide();
-
   $('#acceptCharacters').on('click', function(){
     game.setUpPeople(selectedCharacters)
     $('#characterSelection').hide();
+    $('#gameplay').show();
   })
 
   $('#whateverCharacters').on('click', function(){
     console.log('whateverCharacters')
+    $('#characterSelection').hide();
+    $('#gameplay').show();
   })
 
   setupCharacterScreen();
