@@ -94,7 +94,7 @@ class Game {
       person.feed()
     }
     
-    this.wealth -= restaurant.cost
+    this.wealth -= restaurant.price
   }
 
 	selectRestaurant(restaurant) {
