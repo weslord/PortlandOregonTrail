@@ -61,7 +61,7 @@ class Game {
   }
 
 	goWest() {
-    // for person in this.people {
+    // for (person in this.people) {
     //   person.becomeHungrier()
     // }
 
@@ -89,11 +89,11 @@ class Game {
 	}
 
   feedPeople(restaurant) {
-    // for person in this.people {
-    //   person.feed()
-    // }
-		//
-    // this.wealth -= restaurant.cost
+  //   for (person in this.people) {
+  //     person.feed()
+  //   }
+		
+    this.wealth -= restaurant.cost
   }
 
 	selectRestaurant(restaurant) {
