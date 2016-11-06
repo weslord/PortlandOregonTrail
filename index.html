@@ -11,26 +11,28 @@
   </head>
 
   <body>
-  	<h1 id="siteTitle">The Portland Oregon Trail</h1>
-    <div id='backgroundImage'>
-      <img id='elCamino' src='./images/el-camino.png'/>
-    </div>
-
-    <img id='cityImage'/> <!-- can we move this into the backgroundImage div? -->
-
-    <div id='description' city-data=''>
-
-      <div class='uiContainer' id='actions'>
-        <h3 class='secTitle'>Actions:</h3>
-        <div class='action' id='goWest'>Go West</div>
-        <div class='action' id='buyGas'>Buy Gas</div>
-        <div class='action' id='getFood'>Get Food</div>
+    <div id="intro"></div>
+    <div id="gameplay">
+      <h1 id="siteTitle">The Portland Oregon Trail</h1>
+      <div id='backgroundImage'>
+        <img id='elCamino' src='./images/el-camino.png'/>
       </div>
 
-      <div class='uiContainer' id='restaurantOptions'>
-        <span class='secTitle'>Choose your restaurant:</span><br>
-        <div id="restaurantOptionsContainer"></div>
-      </div>
+      <img id='cityImage'/> <!-- can we move this into the backgroundImage div? -->
+
+      <div id='description' city-data=''>
+
+        <div class='uiContainer' id='actions'>
+          <h3 class='secTitle'>Actions:</h3>
+          <div class='action' id='goWest'>Go West</div>
+          <div class='action' id='buyGas'>Buy Gas</div>
+          <div class='action' id='getFood'>Get Food</div>
+        </div>
+
+        <div class='uiContainer' id='restaurantOptions'>
+          <span class='secTitle'>Choose your restaurant:</span><br>
+          <div id="restaurantOptionsContainer"></div>
+        </div>
 
       <div class='uiContainer' id='buyingGasInfo'>
         <p>Gas is <span class='gasCosts' id='gasPrice'></span>/gal</p>
@@ -46,15 +48,14 @@
         <p id='currentCity'>Current City: <!-- change from next to current -->
           <span id='currentCityName'></span>
         </p>
-        <p id='milesTravelled'>Miles Travelled:
-          <span id='milesTravelledNum'></span>
-        </p>
-
         <p id='milesToNext'>Miles To Next City:
           <span id='milesToNextNum'></span>
         </p>
         <p id='milesToGo'>Miles To Portland:
           <span id='milesToGoNum'></span>
+        </p>
+        <p id='milesTravelled'>Miles Travelled:
+          <span id='milesTravelledNum'></span>
         </p>
         <p id='gasRemaining'>Gas in Tank:
           <span id='gasRemainingNum'></span> gal
@@ -71,28 +72,31 @@
         </p> -->
       </div>
 
-      <div class='uiContainer' id='passengers'>
-        <h3 class='secTitle'>Passengers:</h3>
-        <p>
-          <span class='passenger' id='passenger1'>John</span>
-        </p>
-        <p>
-          <span class='passenger' id='passenger2'>Paul</span>
-        </p>
-        <p>
-          <span class='passenger' id='passenger3'>George</span>
-        </p>
-        <p>
-          <span class='passenger' id='passenger4'>Ringo</span>
-        </p>
-      </div>
-    </div>
 
-    <div id='notification'>
-      <p id='notification-text'></p>
-      <p id='notification-cool'></p>
-      <p id='notification-cost'></p>
-      <!-- &#38;nbsp; -->
+        <div class='uiContainer' id='passengers'>
+          <h3 class='secTitle'>Passengers:</h3>
+
+          <div class='passenger' id='passenger0'>John
+            <div class="hungerContainer"><div class="hungerBar"></div></div>
+          </div>
+          <div class='passenger' id='passenger1'>Paul
+            <div class="hungerContainer"><div class="hungerBar"></div></div>
+          </div>
+          <div class='passenger' id='passenger2'>George
+            <div class="hungerContainer"><div class="hungerBar"></div></div>
+          </div>
+          <div class='passenger' id='passenger3'>Ringo
+            <div class="hungerContainer"><div class="hungerBar"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div id='notification'>
+        <p id='notification-text'></p>
+        <p id='notification-cool'></p>
+        <p id='notification-cost'></p>
+        <!-- &#38;nbsp; -->
+      </div>
     </div>
 
     <script src='js/jquery-3.1.1.js'></script>

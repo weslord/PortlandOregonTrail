@@ -15,11 +15,16 @@ body {
 	text-align: center;
 }
 
+#intro {
+	border: 1px solid red;
+
+}
+
 .uiContainer {
   float:left;
   margin-left:2%;
   padding:1em 0.5em;
-  border:2px solid grey;
+  border:2px solid #5f3f1c;
 }
 
 #currentStatus {
@@ -88,12 +93,36 @@ body {
   cursor: pointer;
   padding:0.5em;
   margin-bottom: 0.5em;
-  border: 1px solid red;
+  width: 130px;
+}
+
+.action:hover {
+ background: #8C4E27;
 }
 
 .action span:hover {
   background-color: #fff59b;
 }
+
 .gasCosts {
   color: green
+}
+
+.passenger {
+  
+}
+
+.hungerContainer {
+  margin: 1em 0;
+  padding: 0;
+  border:2px solid brown;
+  height:1em;
+  
+}
+.hungerBar {
+  padding: 0;
+  margin: 0;
+  height:100%;
+  width:25%;
+  background-color:white;
 }
