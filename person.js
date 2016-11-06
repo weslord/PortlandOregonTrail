@@ -17,17 +17,16 @@ class Person {
 
 		if (this.hunger >= 100) {
 			this.die()
-
 			$('#passenger' + this.id + ' .hungerBar').css('width', '100%');
 		} else {
 			$('#passenger' + this.id + ' .hungerBar').css('width', "" + this.hunger + '%');
 		}
 	}
-  
+
   die() {
     this.isDead = true
 
-		$('#passenger' + this.id + ' .passengerName').addClass('deadPassenger').removeClass('passenger')  
+		$('#passenger' + this.id + ' .passengerName').addClass('deadPassenger').removeClass('passenger')
 		notification("" + this.name + " has died.")
   }
 
@@ -35,5 +34,20 @@ class Person {
 		let oldHunger = this.hunger
 		this.hunger = 0
 		return oldHunger
+	}
+}
+
+class CharacterManager {
+	constructor(){
+		this.characters = [
+			new Person('Dave', 100, 50, 20, 0),
+			new Person('Rob', 100, 50, 20, 0),
+			new Person('Sarah', 100, 50, 20, 0),
+			new Person('Nicole', 100, 50, 20, 0),
+			new Person('Chet', 100, 50, 20, 0),
+			new Person('Chad', 100, 50, 20, 0),
+			new Person('Jess', 100, 50, 20, 0),
+			new Person('Jo', 100, 50, 20, 0)
+		]
 	}
 }
