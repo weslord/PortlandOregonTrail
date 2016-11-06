@@ -37,6 +37,7 @@ $(document).ready(function() {
     var milesInTurn = 0;
     setRollingImage();
     leftCity();
+    $('#goWest').hide();
     var timeInterval = setInterval(function(){
       var nextCityDist = cities[game.currentCityIndex + 1].distanceRemaining;
       distanceRemaining--;
@@ -45,11 +46,13 @@ $(document).ready(function() {
       setMilesToNext(distanceRemaining - nextCityDist + 1);
       setMilesTravelled(TOTALMILES - distanceRemaining);
       if (distanceRemaining < nextCityDist){ //arrived at city
+        $('#goWest').show();
         atCity();
         clearInterval(timeInterval)
         goWest();
       }
       if (milesInTurn > 49){
+        $('#goWest').show();
         clearInterval(timeInterval);
         updateStats();
         stopScrollingBackground();
