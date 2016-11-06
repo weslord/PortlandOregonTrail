@@ -36,6 +36,7 @@ $(document).ready(function() {
   function countdownMilage(){
     var milesInTurn = 0;
     setRollingImage();
+    leftCity();
     var timeInterval = setInterval(function(){
       var nextCityDist = cities[game.currentCityIndex + 1].distanceRemaining;
       distanceRemaining--;
@@ -43,7 +44,8 @@ $(document).ready(function() {
       setMilesToGo(distanceRemaining);
       setMilesToNext(distanceRemaining - nextCityDist + 1);
       setMilesTravelled(TOTALMILES - distanceRemaining);
-      if (distanceRemaining < nextCityDist){
+      if (distanceRemaining < nextCityDist){ //arrived at city
+        atCity();
         clearInterval(timeInterval)
         goWest();
       }
@@ -55,6 +57,14 @@ $(document).ready(function() {
     }, 50)
     var event = game.eventsManager.getRandomEvent();
     game.updateStatesEvent(event);
+  }
+  function atCity() {
+    $('#buyGas').show();
+    $('#getFood').show();
+  }
+  function leftCity() {
+    $('#buyGas').hide();
+    $('#getFood').hide();
   }
   function updateStats() {
     var mileage = game.getCar().mileage;
@@ -101,13 +111,13 @@ $(document).ready(function() {
   var scrollBackground;
 
   function stopScrollingBackground(){
-      clearInterval(scrollBackground);
+    clearInterval(scrollBackground);
   }
 
   function startScrollingBackground(){
     scrollBackground = setInterval(function(){
-        imageInterval+=1.6;
-        $('#backgroundImage').css('background-position', imageInterval + 'px 0');
+      imageInterval+=1.6;
+      $('#backgroundImage').css('background-position', imageInterval + 'px 0');
     }, 20);
   }
 

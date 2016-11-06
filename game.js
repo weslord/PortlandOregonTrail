@@ -13,6 +13,7 @@ class Game {
     this.currentCityIndex = 0;
     this.currentCity = cities[this.currentCityIndex];
 		this.eventsManager = new EventsManager()
+    this.atCity = true;
 	}
 
   changeCool(num) {
