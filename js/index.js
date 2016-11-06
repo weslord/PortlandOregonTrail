@@ -10,12 +10,25 @@ $(document).ready(function() {
   function setUpStart() {
     mileage = 0;
     currentCity = 0;
+    distanceRemaining = TOTALMILES - mileage;
     $('#currentCityName').text(cities[0].name);
     $('#milesTravelledNum').text(mileage);
     $('#milesToGoNum').text(TOTALMILES);
     $('<p> <span id="goWest">GO WEST</span></p>').appendTo('.choices');
 
     setCityImage(cities[0]);
+  }
+
+  function countdownMilage(){
+    var timeInterval = setInterval(function(){
+      setRollingImage();
+      distanceRemaining--;
+      $('#milesToGo').text(distanceRemaining);
+      if (distanceRemaining < cities[currentCity + 1].distanceRemaining){
+        clearInterval(timeInterval)
+        goWest();
+      }
+    }, 50)
   }
 
   function goWest() {
@@ -39,11 +52,17 @@ $(document).ready(function() {
   function setCityImage(city){
     $('#backgroundImage').hide();
     $('#cityImage').attr("src", city.img);
+    $('#cityImage').show();
+  }
+
+  function setRollingImage(){
+    $('#cityImage').hide();
+    $('#backgroundImage').show();
   }
 
   setUpStart();
 
-  $('#goWest').on('click', goWest);
+  $('#goWest').on('click', countdownMilage);
 
   setInterval(function(){
       imageInterval+=1;
