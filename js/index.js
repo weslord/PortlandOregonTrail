@@ -72,7 +72,7 @@ $(document).ready(function() {
   }
 
   function initGame(){
-    $('#milesToNext').hide();
+    $('#nextCity').text(cities[game.currentCityIndex+1].name);
     setCityImage(cities[game.currentCityIndex])
     setMilesToGo(TOTALMILES);
     setMilesTravelled(0);
@@ -82,7 +82,8 @@ $(document).ready(function() {
     $('#buyGas').show();
     $('#getFood').show();
     $('#currentCity').show();
-    $('#milesToNext').hide();
+    console.log(cities[game.currentCityIndex+1].name);
+    $('#nextCity').text(cities[game.currentCityIndex+2].name);
     setTimeout(function(){
       setCityImage(cities[game.currentCityIndex])
     }, 1000)
@@ -90,7 +91,7 @@ $(document).ready(function() {
   function leftCity() {
     $('#buyGas').hide();
     $('#getFood').hide();
-    $('#currentCity').hide();
+    $('#currentCity').text("On the road again!");
     $('#milesToNext').show();
   }
 
@@ -125,10 +126,14 @@ $(document).ready(function() {
   updateStats();
   $('#cityImage').hide();
   $('#restaurantOptions').hide();
+  $('#buyingGasInfo').hide();
+  // $('#gasOptionsContainer').hide();
 
   //buttons
   $('#goWest').on('click', countdownMilage);
   $('#getFood').on('click', getFood);
+  $('#buyGas').on('click', buyGas);
+  $('#forgetIt').on('click', forgetIt);
   initGame();
 
   function getFood(){
@@ -149,10 +154,28 @@ $(document).ready(function() {
         });
     })
   }
-  $('#buyGas').on('click', function() {
-    game.refuelCar()
-    updateStats();
-  });
+  function buyGas() {
+    $('#actions').hide();
+    var gasStats = game.getGasStats();
+    var costPerGallonRounded = Math.round(gasStats.costPerGallon * 100) / 100;
+    var amountToFillRounded = Math.round(gasStats.amountToFill * 100) / 100;
+    var totalCostRounded = Math.round(gasStats.totalCost * 100) / 100;
+    $('#buyingGasInfo').show();
+    $('#gasPrice').text(costPerGallonRounded);
+    $('#gasTotalGallons').text(amountToFillRounded);
+    $('#gasTotalCost').text(totalCostRounded);
+    $('#payNow').on('click', function(){
+      game.refuelCar(gasStats.totalCost);
+      $('#buyingGasInfo').hide();
+      $('#actions').show();
+      $('gasOptionsContainer').empty();
+      $('#moneyLeftNum').text(Math.round(game.wealth * 100) / 100);
+    });
+  }
+  function forgetIt() {
+    $('#buyingGasInfo').hide();
+    $('#actions').show();
+  }
 
   var scrollBackground;
 
