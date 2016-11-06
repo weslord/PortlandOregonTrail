@@ -1,5 +1,6 @@
 class Car {
 	constructor() {
+    this.mileage = 0;
 		this.currentTank = 20
 		this.MAX_TANK_CAPACITY = 20
 		this.MILES_PER_GALLON = 25
@@ -16,4 +17,10 @@ class Car {
 	refuel() {
 		this.currentTank = this.MAX_TANK_CAPACITY
 	}
+  // mileage() {
+  //   return this.mileage;
+  // }
+  // currentGas() {
+  //   return this.currentGas;
+  // }
 }

@@ -1,17 +1,32 @@
 @font-face {
   font-family: "C64";
-  src: url("./Commodore-64-v6.3.TTF"); 
+  src: url("./Commodore-64-v6.3.TTF");
 }
 
 body {
   font-family: "C64";
-  height:100%;
+  background-color: black;
+  color:white;
+  margin:0;
+}
+
+.uiContainer {
+  float:left;
+  width:28%;
+  margin-left:2%;
+  padding:1em 0.5em;
+  border:2px solid grey;
+}
+
+.secTitle {
+  font-size:1.2em;
 }
 
 #backgroundImage {
   background-image: url('../images/rotatingbackground.jpg');
   background-size: cover;
   background-repeat: repeat-x;
+  background-position: right;
   overflow: hidden;
   height: 50vh;
   width: 100vw;
@@ -23,6 +38,10 @@ body {
   width: 100vw;
 }
 
+#description {
+  padding-top:1em;
+}
+
 #elCamino {
   float: right;
   padding-top: 33vh;
@@ -31,6 +50,7 @@ body {
 }
 
 #notification {
+/*
   box-sizing: border-box;
   display:none;
   height:824px;
@@ -38,12 +58,21 @@ body {
   padding-left:500px;
   padding-top:200px;
   background-image: url('../images/hipster-hand.png');
+*/
+  float:left;
+  width:90%;
+  margin:1em 5%;
+  text-align:center;
+  border:2px dashed red;
+
 }
 
-.choices {
-  cursor: pointer
-}
-.choices span:hover {
+.action {
   text-decoration: underline;
+  cursor: pointer;
+  margin-top:1em;
+}
+
+.action span:hover {
   background-color: #fff59b;
 }
