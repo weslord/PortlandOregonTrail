@@ -1,6 +1,6 @@
 @font-face {
   font-family: "C64";
-  src: url("./Commodore-64-v6.3.TTF"); 
+  src: url("./Commodore-64-v6.3.TTF");
 }
 
 body {
@@ -11,9 +11,10 @@ body {
 
 .uiContainer {
   float:left;
-  width:30%;
+  width:28%;
   margin-left:2%;
-  border: 1px solid grey;
+  padding:1em 0.5em;
+  border:2px solid grey;
 }
 
 .secTitle {
