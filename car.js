@@ -12,4 +12,8 @@ class Car {
 	requiredFuel() {
 		return this.MAX_TANK_CAPACITY - this.currentTank
 	}
+
+	refuel() {
+		this.currentTank = this.MAX_TANK_CAPACITY
+	}
 }
