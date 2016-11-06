@@ -50,6 +50,9 @@ $(document).ready(function() {
         atCity();
         clearInterval(timeInterval)
         goWest();
+        setTimeout(function(){
+          setCityImage(cities[game.currentCityIndex])
+        }, 1000)
       }
       if (milesInTurn > 49){
         $('#goWest').show();
@@ -85,7 +88,6 @@ $(document).ready(function() {
     var event = game.goWest();
     updateStats();
     stopScrollingBackground();
-    // setCityImage(cities[game.currentCityIndex]);
   }
 
   function setCityImage(city){
