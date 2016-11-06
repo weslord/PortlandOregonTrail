@@ -29,4 +29,11 @@ function notification(text, cool, cost) {
 
   $('hi').appendTo('#notification');
 
+  $('#notification').click(function(){
+    $('#notification').hide();
+    $('#notification-cool').text('');
+    $('#notification-cost').text('');
+    $('#notification-cool').css('color', 'white');
+    $('#notification-cost').css('color', 'white');
+  });
 }
