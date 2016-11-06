@@ -159,13 +159,13 @@ body {
 }
 .deadPassenger {
   text-decoration:line-through;
-  background-color:#522;
+  color: red;
 }
 
 .hungerContainer {
   margin: 0.25em 0 0.75em 0 ;
   padding: 0;
-  border:2px solid brown;
+  border:2px solid #5f3f1c;
   height:1em;
 
 }
@@ -174,7 +174,7 @@ body {
   margin: 0;
   height:100%;
   width:1%;
-  background-color:white;
+  background-color:#5f3f1c;
 }
 
 #characterSelection {
