@@ -8,7 +8,7 @@ body {
   background-color: black;
   color:white;
   margin:0;
-  /*overflow-y:hidden;*/
+  overflow-y:hidden;
 }
 
 #siteTitle {
@@ -42,13 +42,6 @@ body {
 	float: left;
 	padding: 10px;
 }
-
-/*
-.actions {
-	background: #8C4E27;
-}
-*/
-
 
 #el-camino-oxen {
 	width: 1000px;
@@ -138,7 +131,7 @@ body {
   cursor: pointer;
   padding:0.5em;
   margin-bottom: 0.5em;
-  width: 130px;
+  width: 160px;
 }
 
 .action:hover {
@@ -161,6 +154,10 @@ body {
 .deadPassenger {
   text-decoration:line-through;
   color: red;
+}
+
+.deadPassenger .hungerBar{
+  background-color: black;
 }
 
 .hungerContainer {
