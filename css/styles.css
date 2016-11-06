@@ -5,6 +5,7 @@
 
 body {
   font-family: "C64";
+  height:100%;
 }
 
 #backgroundImage {
@@ -28,6 +29,17 @@ body {
   padding-right: 2vw;
   height: 12vh;
 }
+
+#notification {
+  box-sizing: border-box;
+  display:none;
+  height:824px;
+  width:840px;
+  padding-left:500px;
+  padding-top:200px;
+  background-image: url('../images/hipster-hand.png');
+}
+
 .choices {
   cursor: pointer
 }
