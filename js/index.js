@@ -64,17 +64,21 @@ $(document).ready(function() {
     game.updateStatesEvent(event);
   }
   function initGame(){
+    $('#onTheRoad').hide();
     $('#nextCity').text(cities[game.currentCityIndex+1].name);
     setCityImage(cities[game.currentCityIndex])
     setMilesToGo(TOTALMILES);
+    setMilesToNext(57);
     setMilesTravelled(0);
   }
 
   function atCity() {
     $('#buyGas').show();
     $('#getFood').show();
+    $('#onTheRoad').hide();
     $('#currentCity').show();
-    console.log(cities[game.currentCityIndex+1].name);
+    var nextCityDist = cities[game.currentCityIndex + 2].distanceRemaining;
+    setMilesToNext(distanceRemaining - nextCityDist + 1);
     $('#nextCity').text(cities[game.currentCityIndex+2].name);
     setTimeout(function(){
       setCityImage(cities[game.currentCityIndex])
@@ -83,7 +87,8 @@ $(document).ready(function() {
   function leftCity() {
     $('#buyGas').hide();
     $('#getFood').hide();
-    $('#currentCity').text("On the road again!");
+    $('#currentCity').hide();
+    $('#onTheRoad').show();
     $('#milesToNext').show();
   }
 
