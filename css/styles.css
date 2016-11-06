@@ -1,6 +1,6 @@
 @font-face {
   font-family: "C64";
-  src: url("./Commodore-64-v6.3.TTF");
+  src: url("./C64_Pro_Mono-STYLE.ttf");
 }
 
 body {
@@ -11,12 +11,23 @@ body {
   overflow-y:hidden;
 }
 
+#siteTitle {
+	text-align: center;
+}
+
 .uiContainer {
   float:left;
-  width:28%;
   margin-left:2%;
   padding:1em 0.5em;
   border:2px solid grey;
+}
+
+#currentStatus {
+	width: 42%;
+}
+
+#actions, #passengers {
+	width:20%;
 }
 
 .secTitle {
@@ -74,9 +85,10 @@ body {
 }
 
 .action {
-  text-decoration: underline;
   cursor: pointer;
-  margin-top:1em;
+  padding:0.5em;
+  margin-bottom: 0.5em;
+  border: 1px solid red;
 }
 
 .action span:hover {
