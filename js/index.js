@@ -76,7 +76,7 @@ $(document).ready(function() {
       $('#intro').hide();
       $('#characterSelection').show();
     })
-    
+
     $('#onTheRoad').hide();
     $('#nextCity').text(cities[game.currentCityIndex+1].name);
     setCityImage(cities[game.currentCityIndex])
@@ -198,6 +198,7 @@ $(document).ready(function() {
       $("<tr/>")
       .append(`
         <td>${character.name}</td>
+        <td>${character.hometown}</td>
         <td>${character.wealth}</td>
         <td>${character.cool}</td>
         <td>${character.hungerRate}</td>
