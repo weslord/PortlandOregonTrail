@@ -8,6 +8,16 @@ class Game {
 
     this.cool = 0
     this.wealth = 0
+<<<<<<< HEAD
+=======
+
+    for (var i = 0; i < people.length; i++) {
+      let person = people[i]
+      this.cool += person.cool
+      this.wealth += person.wealth
+    }
+
+>>>>>>> master
     this.currentCityIndex = 0;
     this.currentCity = cities[this.currentCityIndex];
     this.eventsManager = new EventsManager()
