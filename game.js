@@ -61,10 +61,10 @@ class Game {
   }
 
 	goWest() {
-		// console.log(this)
     // for person in this.people {
     //   person.becomeHungrier()
     // }
+		console.log(this.wealth);
 
     if (this.currentCityIndex < cities.length) {
       this.currentCityIndex++;
