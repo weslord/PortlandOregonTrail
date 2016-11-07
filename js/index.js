@@ -107,7 +107,7 @@ $(document).ready(function() {
           var nickelback = new Audio('audio/nickelback.mp3');
           nickelback.play();
         notification("A Nickelback song was found on your playlist.", -100, 0)
-        game.wealth -= 100;
+        game.cool -= 100;
         console.log(game.wealth);
         $('#moneyLeftNum').text(game.wealth);
           setTimeout(stopItPlease, 12000);
