@@ -36,6 +36,7 @@ $(document).ready(function() {
   }
 
   function countdownMilage(){
+    checkGameOver();
     var milesInTurn = 0;
     setRollingImage();
     leftCity();
@@ -67,12 +68,59 @@ $(document).ready(function() {
     game.starvePeople();
   }
 
+  function checkGameOver() {
+    var gameOverStats = game.isGameOver();
+
+    if (gameOverStats.everyoneDead || gameOverStats.coolDead || gameOverStats.outOfGas) {
+      $("body").fadeOut(2000, function () {
+        $("body").empty();
+        // $('<div class="gameOver">You died of terminal uncoolness. <p id="playAgain" class="action">Play Again</p></div>').appendTo("html");
+        // $('<p class="playAgain" class="action">Play Again</p>').appendTo("html");
+        if (gameOverStats.everyoneDead) {
+          gameOver("Everyone is dead. Whatever. I guess you can't keep going or something.");
+        } else if (gameOverStats.coolDead){
+           gameOver("You died of terminal uncoolness.");
+        } else if (gameOverStats.outOfGas) {
+          gameOver("You're out of gas! Your journey ends..");
+        }
+        $('#playAgain').on('click', function() {
+          location.reload();
+        });
+      });
+    }
+  }
+
+  function gameOver(msg) {
+        $('<div class="gameOver"> ' + msg + '<p id="playAgain" class="action">Play Again</p></div>').appendTo("html");
+  }
+  $('#playAgain').on('click', function() {
+    console.log('playagain');
+    location.reload();
+  });
+  $(document).keypress(function(e) {
+      if(e.which == 13) {
+        console.log("NICKELBACK");
+        var stopItPlease = function() {
+          nickelback.pause();
+          nickelback.currentTime = 0;
+        }
+          var nickelback = new Audio('audio/nickelback.mp3');
+          nickelback.play();
+        notification("A Nickelback song was found on your playlist.", -100, 0)
+        game.wealth -= 100;
+        console.log(game.wealth);
+        $('#moneyLeftNum').text(game.wealth);
+          setTimeout(stopItPlease, 12000);
+        } 
+  });
+
   function initGame(){
     // splash screen
     $('#gameplay').hide();
     $('#characterSelection').hide();
 
-    $('#intro').on('click', function () {
+    $('.introButtons').on('click', function () {
+      console.log('click');
       $('#intro').hide();
       $('#characterSelection').show();
     })

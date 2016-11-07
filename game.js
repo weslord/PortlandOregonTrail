@@ -32,7 +32,7 @@ class Game {
 				.appendTo('#passengers')
 		}
 	}
-
+  
   changeCool(num) {
     this.cool += num;
   }
@@ -60,6 +60,7 @@ class Game {
   updateStatesEvent(event) {
     if (event != undefined) {
       if (event.description.includes('Nickelback')) {
+        console.log("NICKELBACK");
         var stopItPlease = function() {
           nickelback.pause();
           nickelback.currentTime = 0;
@@ -124,6 +125,12 @@ class Game {
   feedPeople(restaurant) {
 		var canEat = true;
     for (var person in this.people) {
+// <<<<<<< HEAD
+//       this.people[person].feed()
+//     }
+//     this.wealth += restaurant.price
+// 		
+// =======
 			var that = this;
 			this.people[person].allergies.forEach(function(allergy){
 				if  (allergy === "Gluten" && restaurant.type === 'Gluten'){
@@ -158,4 +165,23 @@ class Game {
 		this.changeMoney(restaurant.price);
 		this.changeCool(restaurant.cool);
 	}
+  isGameOver() {
+    var everyoneDead = true;
+    for (var i = 0; i < 4; i++) {
+      if (this.people[i] && !this.people[i].isDead) {
+        everyoneDead = false;
+      }
+    }
+    // this.people[0].isDead && this.people[1].isDead && this.people[2].isDead &&  this.people[3].isDead;
+    console.log('everyoneDead' + everyoneDead);
+    var coolDead = this.cool <= -100;
+    var outOfGas = this.car.currentTank <= 0;
+
+    return {
+      everyoneDead: everyoneDead, 
+      coolDead: coolDead, 
+      outOfGas: outOfGas
+    }
+    // return everyoneDead || this.cool <= -100 || this.people.length <= 0 || this.car.currentTank <= 0;
+  }
 }
