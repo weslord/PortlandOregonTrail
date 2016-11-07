@@ -149,7 +149,7 @@ class Game {
 			for (var person in this.people) {
 				this.people[person].feed();
 				this.wealth += restaurant.price
-				setMoney(game.wealth);
+				// setMoney(game.wealth);
 				setCoolPoints(game.cool);
 				selectRestaurant(restaurant);
 
