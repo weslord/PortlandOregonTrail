@@ -123,11 +123,42 @@ class Game {
   }
 
   feedPeople(restaurant) {
+		var canEat = true;
     for (var person in this.people) {
-      this.people[person].feed()
+// <<<<<<< HEAD
+//       this.people[person].feed()
+//     }
+//     this.wealth += restaurant.price
+// 		
+// =======
+			var that = this;
+			this.people[person].allergies.forEach(function(allergy){
+				if  (allergy === "Gluten" && restaurant.type === 'Gluten'){
+					notification(that.people[person].name + " is allergic to Gluten, you can't eat here")
+					canEat = false;
+				}
+				if ((allergy === 'Vegan' || allergy === ' Vegan') && restaurant.type === 'Vegan'){
+					notification(that.people[person].name + " is a Vegan, you can't eat here")
+					canEat = false;
+				}
+			})
     }
-    this.wealth += restaurant.price
-		
+
+		if (canEat){
+			console.log('here')
+			for (var person in this.people) {
+				this.people[person].feed();
+				this.wealth += restaurant.price
+				setMoney(game.wealth);
+				setCoolPoints(game.cool);
+				selectRestaurant(restaurant);
+
+				$('#restaurantOptionsContainer').empty();
+				$('#restaurantOptions').hide();
+				$('#actions').show();
+
+			}
+		}
   }
 
 	selectRestaurant(restaurant) {

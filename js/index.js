@@ -284,6 +284,7 @@ $(document).ready(function() {
     game.setUpPeople(selectedCharacters)
     $('#characterSelection').hide();
     $('#gameplay').show();
+    updateStats()
   })
 
   $('#whateverCharacters').on('click', function(){
@@ -295,6 +296,7 @@ $(document).ready(function() {
     ])
     $('#characterSelection').hide();
     $('#gameplay').show();
+    updateStats()
   })
 
   setupCharacterScreen();
