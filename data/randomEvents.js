@@ -36,4 +36,7 @@ class EventsManager {
       let randomNumber = Math.floor(Math.random() * this.events.length);
       return this.events[randomNumber]
 	}
+  getNickelback() {
+		  return new Event("A Nickelback song was found on your playlist.", 0, -100);
+  }
 }

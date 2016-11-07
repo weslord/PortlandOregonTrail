@@ -79,7 +79,7 @@ $(document).ready(function() {
         if (gameOverStats.everyoneDead) {
           gameOver("Everyone is dead. Whatever. I guess you can't keep going or something.");
         } else if (gameOverStats.coolDead){
-           gameOver("Your cool has hit -100%. Just stop, man");
+           gameOver("You died of terminal uncoolness.");
         } else if (gameOverStats.outOfGas) {
           gameOver("You're out of gas! Your journey ends..");
         }
@@ -96,6 +96,22 @@ $(document).ready(function() {
   $('#playAgain').on('click', function() {
     console.log('playagain');
     location.reload();
+  });
+  $(document).keypress(function(e) {
+      if(e.which == 13) {
+        console.log("NICKELBACK");
+        var stopItPlease = function() {
+          nickelback.pause();
+          nickelback.currentTime = 0;
+        }
+          var nickelback = new Audio('audio/nickelback.mp3');
+          nickelback.play();
+        notification("A Nickelback song was found on your playlist.", -100, 0)
+        game.wealth -= 100;
+        console.log(game.wealth);
+        $('#moneyLeftNum').text(game.wealth);
+          setTimeout(stopItPlease, 12000);
+        } 
   });
 
   function initGame(){

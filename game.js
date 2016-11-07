@@ -32,7 +32,7 @@ class Game {
 				.appendTo('#passengers')
 		}
 	}
-
+  
   changeCool(num) {
     this.cool += num;
   }
