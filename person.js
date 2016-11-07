@@ -52,7 +52,7 @@ class CharacterManager {
       new Person('Nicole', 19, [" Doesn't do McDonalds"], 100, 50, 20, 3),
       new Person('Chad', 30,  ['Pescatarian'], -90, 220, 5, 4),
       new Person('Huntyr', 16, ['Vegan'], 10, 100, 18, 5),
-      new Person('Jess', 22, ['Gluten'] 100, 50, 10, 6),
+      new Person('Jess', 22, ['Gluten'], 100, 50, 10, 6),
       new Person('Peyton', 21, ['Vegan', " Doesn't do Starbucks"], 10, 50, 5, 7)
 		]
 	}
