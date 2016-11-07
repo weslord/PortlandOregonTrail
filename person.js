@@ -1,8 +1,9 @@
 class Person {
-	constructor(name, hometown, cool, wealth, hungerRate, id) {
+	constructor(name, hometown, allergies, cool, wealth, hungerRate, id) {
 		this.id = id
 		this.name = name
 		this.hometown = hometown
+		this.allergies = allergies
 		this.cool = cool
 		this.wealth = wealth
 		this.hungerRate = hungerRate
@@ -45,14 +46,14 @@ class Person {
 class CharacterManager {
 	constructor(){
 		this.characters = [
-			new Person('Dave', 'Omaha', 100, 150, 20, 0),
-			new Person('Rob', 'Fort Dodge', 0, 250, 40, 1),
-			new Person('Sarah', 'Rochester', 20, 80, 15, 2),
-			new Person('Nicole', 'Omaha', 100, 50, 20, 3),
-			new Person('Chet', 'Licoln', -10, 220, 28, 4),
-			new Person('Chad', 'Fort Worth', 10, 100, 18, 5),
-			new Person('Jess', 'Davenport', 100, 50, 10, 6),
-			new Person('Peyton', 'Omaha', 10, 50, 5, 7)
+			new Person('Dave', 'Omaha', ['Gluten', ' Vegan'], 100, 150, 20, 0),
+			new Person('Rob', 'Fort Dodge', ['None'], 0, 250, 40, 1),
+			new Person('Sarah', 'Rochester', [" Doesn't do McDonalds"], 20, 80, 15, 2),
+			new Person('Nicole', 'Omaha', ['Gluten'], 100, 50, 20, 3),
+			new Person('Chet', 'Licoln', ['Pescatarian'], -10, 220, 28, 4),
+			new Person('Chad', 'Fort Worth', ['Vegan'], 10, 100, 18, 5),
+			new Person('Jess', 'Davenport', ['None'], 100, 50, 10, 6),
+			new Person('Peyton', 'Omaha', ['Vegan', " Doesn't do Starbucks"], 10, 50, 5, 7)
 		]
 	}
 }
