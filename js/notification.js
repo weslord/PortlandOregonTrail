@@ -6,6 +6,8 @@ $('#notification').click(function(){
 });
 
 function notification(text, cool, cost) {
+  $('#notification-cool').text('');
+  $('#notification-cost').text('');
   $('#notification-text').text(text);
   if (cool > 0) {
     $('#notification-text').text(text);

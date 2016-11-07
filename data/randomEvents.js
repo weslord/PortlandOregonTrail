@@ -23,7 +23,7 @@ class EventsManager {
 		  new Event("Purchased a velocipede.", -100, 50),
 		  new Event("Stopped for coffee. Took out the typewriter.", -10, 25),
 		  new Event("Became friends with a cop.", 0, 20),
-		  new Event("Phone broke. You died of boredom.", 0, 0),
+		  // new Event("Phone broke. You died of boredom.", 0, 0),
 		  new Event("Stopped by to help a farmer cultivate his organic tomatoes.", 100, 100),
 		  new Event("Ate too much sashimi. Got mercury poisoning.", 200, 50)
 		]
