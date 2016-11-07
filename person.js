@@ -46,14 +46,14 @@ class Person {
 class CharacterManager {
 	constructor(){
 		this.characters = [
-			new Person('Dave', 'Omaha', ['Gluten', ' Vegan'], 100, 150, 20, 0),
-			new Person('Rob', 'Fort Dodge', ['None'], 0, 250, 40, 1),
-			new Person('Sarah', 'Rochester', [" Doesn't do McDonalds"], 20, 80, 15, 2),
-			new Person('Nicole', 'Omaha', ['Gluten'], 100, 50, 20, 3),
-			new Person('Chet', 'Licoln', ['Pescatarian'], -10, 220, 28, 4),
-			new Person('Chad', 'Fort Worth', ['Vegan'], 10, 100, 18, 5),
-			new Person('Jess', 'Davenport', ['None'], 100, 50, 10, 6),
-			new Person('Peyton', 'Omaha', ['Vegan', " Doesn't do Starbucks"], 10, 50, 5, 7)
+			new Person('Elliot', 23, ['None'], 100, 150, 20, 0),
+      new Person('Chase', 25, ['Gluten', ' Vegan'], 0, 250, 40, 1),
+      new Person('Zarah', 22, ['None'], 20, 80, 15, 2),
+      new Person('Nicole', 19, [" Doesn't do McDonalds"], 100, 50, 20, 3),
+      new Person('Chad', 30,  ['Pescatarian'], -90, 220, 5, 4),
+      new Person('Huntyr', 16, ['Vegan'], 10, 100, 18, 5),
+      new Person('Jess', 22, ['Gluten'] 100, 50, 10, 6),
+      new Person('Peyton', 21, ['Vegan', " Doesn't do Starbucks"], 10, 50, 5, 7)
 		]
 	}
 }
