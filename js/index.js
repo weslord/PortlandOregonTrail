@@ -189,7 +189,7 @@ $(document).ready(function() {
         .on('click', function(){
           game.selectRestaurant(restaurant);
           game.feedPeople(restaurant);
-          
+
           setMoney(game.wealth);
           setCoolPoints(game.cool);
           $('#restaurantOptionsContainer').empty();
@@ -197,6 +197,17 @@ $(document).ready(function() {
           $('#actions').show();
         });
     })
+
+    $("<div />")
+      .html('Forget It')
+      .addClass('action')
+      .appendTo("#restaurantOptionsContainer")
+      .on('click', function(){
+        $('#restaurantOptionsContainer').empty();
+        $('#restaurantOptions').hide();
+        $('#actions').show();
+      });
+
   }
   function buyGas() {
     $('#actions').hide();
@@ -233,6 +244,7 @@ $(document).ready(function() {
       .append(`
         <td>${character.name}</td>
         <td>${character.hometown}</td>
+        <td>${character.allergies}</td>
         <td>${character.wealth}</td>
         <td>${character.cool}</td>
         <td>${character.hungerRate}</td>

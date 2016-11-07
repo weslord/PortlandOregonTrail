@@ -60,7 +60,6 @@ class Game {
   updateStatesEvent(event) {
     if (event != undefined) {
       if (event.description.includes('Nickelback')) {
-        console.log("NICKELBACK");
         var stopItPlease = function() {
           nickelback.pause();
           nickelback.currentTime = 0;
@@ -124,10 +123,20 @@ class Game {
 
   feedPeople(restaurant) {
     for (var person in this.people) {
-      this.people[person].feed()
+			var that = this;
+			this.people[person].feed()
+
+			this.people[person].allergies.forEach(function(allergy){
+				if  (allergy === " Doesn't do McDonalds" && restaurant.name === 'McDonalds'){
+					notification(that.people[person].name + " doesn't do McDonalds\n", -30, 0)
+					that.changeCool(-30)
+				} else if (allergy === 'Vegan' && restaurant.type !== 'Vegan'){
+					notification(that.people[person].name + " is a Vegan\n", -30, 0)
+					that.changeCool(-30)
+				}
+			})
     }
     this.wealth += restaurant.price
-		
   }
 
 	selectRestaurant(restaurant) {
