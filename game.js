@@ -135,8 +135,22 @@ class Game {
 		this.changeCool(restaurant.cool);
 	}
   isGameOver() {
-    var everyoneDead = this.people[0].isDead && game.people[1].isDead && game.people[2].isDead &&  game.people[3].isDead;
-    console.log('gas' + this.car.currentTank);
-    return everyoneDead || this.cool <= -100 || this.people.length <= 0 || this.car.currentTank <= 0;
+    var everyoneDead = true;
+    for (var i = 0; i < 4; i++) {
+      if (this.people[i] && !this.people[i].isDead) {
+        everyoneDead = false;
+      }
+    }
+    // this.people[0].isDead && this.people[1].isDead && this.people[2].isDead &&  this.people[3].isDead;
+    console.log('everyoneDead' + everyoneDead);
+    var coolDead = this.cool <= -100;
+    var outOfGas = this.car.currentTank <= 0;
+
+    return {
+      everyoneDead: everyoneDead, 
+      coolDead: coolDead, 
+      outOfGas: outOfGas
+    }
+    // return everyoneDead || this.cool <= -100 || this.people.length <= 0 || this.car.currentTank <= 0;
   }
 }

@@ -69,16 +69,29 @@ $(document).ready(function() {
   }
 
   function checkGameOver() {
-    if (game.isGameOver()) {
-      $("body").fadeOut(3000, function () {
+    var gameOverStats = game.isGameOver();
+
+    if (gameOverStats.everyoneDead || gameOverStats.coolDead || gameOverStats.outOfGas) {
+      $("body").fadeOut(2000, function () {
         $("body").empty();
-        $('<div class="gameOver">You died of terminal uncoolness. <p id="playAgain" class="action">Play Again</p></div>').appendTo("html");
+        // $('<div class="gameOver">You died of terminal uncoolness. <p id="playAgain" class="action">Play Again</p></div>').appendTo("html");
         // $('<p class="playAgain" class="action">Play Again</p>').appendTo("html");
+        if (gameOverStats.everyoneDead) {
+          gameOver("Everyone is dead. Whatever. I guess you can't keep going or something.");
+        } else if (gameOverStats.coolDead){
+           gameOver("Your cool has hit -100%. Just stop, man");
+        } else if (gameOverStats.outOfGas) {
+          gameOver("You're out of gas! Your journey ends..");
+        }
         $('#playAgain').on('click', function() {
           location.reload();
         });
       });
     }
+  }
+
+  function gameOver(msg) {
+        $('<div class="gameOver"> ' + msg + '<p id="playAgain" class="action">Play Again</p></div>').appendTo("html");
   }
   $('#playAgain').on('click', function() {
     console.log('playagain');
