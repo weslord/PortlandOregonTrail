@@ -46,14 +46,14 @@ class Person {
 class CharacterManager {
 	constructor(){
 		this.characters = [
-			new Person('Elliot', 23, ['None'], 100, 150, 20, 0),
-      new Person('Chase', 25, ['Gluten', ' Vegan'], 0, 250, 40, 1),
-      new Person('Zarah', 22, ['None'], 20, 80, 15, 2),
-      new Person('Nicole', 19, [" Doesn't do McDonalds"], 100, 50, 20, 3),
-      new Person('Chad', 30,  ['Pescatarian'], -90, 220, 5, 4),
-      new Person('Huntyr', 16, ['Vegan'], 10, 100, 18, 5),
-      new Person('Jess', 22, ['Gluten'], 100, 50, 10, 6),
-      new Person('Peyton', 21, ['Vegan', " Doesn't do Starbucks"], 10, 50, 5, 7)
+		  new Person('Wyntir', 23, ['No Big Chains'], 80, 10, 15, 0),
+          new Person('Chase', 25, ['Gluten', ' Vegan'], 35, 1250, 25, 1),
+          new Person('Zarah', 22, ['None'], 20, 150, 15, 2),
+          new Person('Nicole', 19, ["Pescatarian"], 50, 250, 10, 3),
+          new Person('Alan', 43,  ['None'], -90, 2500, 5, 4),
+          new Person('Huntyr', 16, ['None'], 10, 50, 12, 5),
+          new Person('Jess', 22, ['Bee Stings'], 50, 50, 10, 6),
+          new Person('Pixel', 21, ['Buttons'], 100, 5, 5, 7)
 		]
 	}
 }

@@ -15,14 +15,14 @@ class RestaurantManager {
 			new Restaurant("Joe's Diner", "Vegan", "Food for the family.", -10, 0),
 			new Restaurant("McDonalds", "Vegan", "Ronald's home.", -5, -5),
 			new Restaurant("Burger King", "Vegan", "BK yo belly.", -5, -5),
-			new Restaurant("Old Town Bakery", "Vegan", "Old fashioned sweets.", -15, 10),
+			new Restaurant("Old Town Bakery", "Gluten", "Old fashioned sweets.", -15, 10),
 			new Restaurant("Monumental Fried Chicken", "Vegan", "Bwuk bwuk", -10, 0),
-			new Restaurant("Cheap n' Chillies", "Vegan", "Veganism", -25, 5),
+			new Restaurant("Starbucks", "Gluten", "Veganism", -25, 5),
 			new Restaurant("Rabbit Food Source", "Gluten", "Your favorite garden food.", -40, 20),
-			new Restaurant("Willy Billies", "Vegan", "Willy your Billy.", -15, 5),
-			new Restaurant("Chilli Billies", "Vegan", "Chilli your Dilly.", -20, 5),
-			new Restaurant("Dilli Billies", "Vegan", "Dilly your Zilli.", -20, 5),
-			new Restaurant("Vegan Cookie Doughhouse", "Gluten", "Gluten free too.", -35, 15),
+			new Restaurant("Taconeuvo", "Vegan", "Willy your Billy.", -15, 5),
+			new Restaurant("Daves Dogs", "Vegan", "Chilli your Dilly.", -20, 5),
+			new Restaurant("Eatmore Meats", "Vegan", "Dilly your Zilli.", -20, 5),
+			new Restaurant("Cookie Doughhouse", "Gluten", "Gluten free too.", -35, 15),
 		]
 	}
 
